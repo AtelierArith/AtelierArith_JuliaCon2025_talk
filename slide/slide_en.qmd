@@ -1,3 +1,4 @@
+```markdown
 ---
 title: Let's read Julia documentation in your preferred language
 author: SatoshiTerasaki@AtelierArith
@@ -25,10 +26,11 @@ format:
 ## Background and Issues
 
 - Julia's official documentation is written in **English**
-- High psychological and time costs for developers in non-English speaking regions
+- High psychological and time costs for non-English speaking developers
+  - Everyone is busy
 - Latest information is only available in English
 
-**Solution**: An automatic translation system utilizing machine translation
+**Solution**: Build an automatic translation system using machine translation
 
 ---
 
@@ -36,109 +38,253 @@ format:
 
 A package to translate Julia's docstrings into your preferred language
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
+`@doc exp` (Original)
+
 ```julia
-julia> using DocstringTranslation; @switchlang! :Japanese
+julia> @doc exp
+  exp(x)
+
+  Compute the natural base exponential of x, in other words ℯ^x.
+
+  See also exp2, exp10 and cis.
+
+  Examples
+  ≡≡≡≡≡≡≡≡
+
+  julia> exp(1.0)
+  2.718281828459045
+
+  julia> exp(im * pi) ≈ cis(pi)
+  true
+
+  exp(A::AbstractMatrix)
+
+  Compute the matrix exponential of A, defined by
+
+  e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}.
+
+  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm
+  (see [^H05]) is chosen.
+
+  │ [^H05]
+  │
+  │  Nicholas J. Higham, "The squaring and scaling method for the matrix exponential revisited", SIAM Journal
+  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539
+  │  (https://doi.org/10.1137/090768539)
+
+  Examples
+  ≡≡≡≡≡≡≡≡
+
+  julia> A = Matrix(1.0I, 2, 2)
+  2×2 Matrix{Float64}:
+   1.0  0.0
+   0.0  1.0
+
+  julia> exp(A)
+  2×2 Matrix{Float64}:
+   2.71828  0.0
+   0.0      2.71828
+
+```
+:::
+
+::: {.column width="50%"}
+
+`@doc exp` (Translated into Japanese)
+
+```julia
+julia> ENV["OPENAI_API_KEY"] = "sk-<blah>"
+julia> using DocstringTranslation
+julia> @switchlang! :ja
 julia> @doc exp
   exp(x)
 
   xの自然基底指数を計算します。言い換えれば、ℯ^xです。
+
+  他にexp2、exp10、およびcisも参照してください。
 
   例
   ≡≡
 
   julia> exp(1.0)
   2.718281828459045
-```
 
-Uses ChatGPT API (`gpt-4o-mini`)
+  julia> exp(im * pi) ≈ cis(pi)
+  true
+
+  exp(A::AbstractMatrix)
+
+  行列 A の行列指数関数を計算します。これは次のように定義されます。
+
+  e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}.
+
+  対称行列またはエルミート行列 A
+  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\H05]を参照）。
+
+  │ [^H05]
+  │
+  │  Nicholas J. Higham, "The squaring and scaling method for the matrix exponential revisited", SIAM Journal
+  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539
+  │  (https://doi.org/10.1137/090768539)
+
+  例
+  ≡≡
+
+  julia> A = Matrix(1.0I, 2, 2)
+  2×2 Matrix{Float64}:
+   1.0  0.0
+   0.0  1.0
+
+  julia> exp(A)
+  2×2 Matrix{Float64}:
+   2.71828  0.0
+   0.0      2.71828
+```
+:::
+
+::::
 
 ---
 
 ## Translation Mechanism
 
-Hack the `Docs.parsedoc(d::DocStr)` method
+- `@switchlang! :ja` overwrites the `Docs.parsedoc(d::DocStr)` method.
 
 ```julia
+# Rough sketch
 @eval function Docs.parsedoc(d::DocStr)
     if d.object === nothing
         md = Docs.formatdoc(d)
         md.meta[:module] = d.data[:module]
         md.meta[:path] = d.data[:path]
-        d.object = md
+        begin # hack
+          translated_md = translate_docstring_with_openai(md)
+        end # hack
+        d.object = translated_md
     end
-    # d.object # <-- 元の実装
-    translate_with_openai(d.object) # <-- ハック実装
+    d.object
 end
 ```
 
----
-
-## Challenges in Markdown Translation
-
-- Risk of damaging the Markdown structure
-- Need to protect Documenter syntax like `[xxx](@ref yyy)`
-- Code blocks should not be translated
-
-**Solution**: Use the `Markdown.parse` result for structure protection
+See the [actual implementation](https://github.com/AtelierArith/DocstringTranslation.jl/blob/77eb4e187d30c9e82a0e4f078742b5c2af7f0845/src/switchlang.jl#L24-L51) to learn more.
 
 ---
 
-## Implementation of Structure Protection
+## Docstrings on IJulia.jl
 
-1. Replace elements like `Markdown.Link` with unique IDs
-2. Execute translation
-3. Restore IDs to the original structure
+We can read translated docstrings on Jupyter
 
-```julia
-# 翻訳前: See [Julia docs](https://docs.julialang.org/en/v1/)
-# 置換後: See `asfa93r_bfeafasf`
-# 翻訳後: 詳しくは `asfa93r_bfeafasf` を見てください
-# 復元後: 詳しくは [Julia docs](https://docs.julialang.org/en/v1/) を見てください
+![](assets/jupyter_eigen.png)
+
+---
+
+## Live Docs on Pluto.jl
+
+We can read translated docstrings on Pluto
+
+![](assets/pluto_eigen.png)
+
+---
+
+### Translation of Documenter.jl based documents
+
+```diff
+--- a/docs/make.jl
++++ b/docs/make.jl
+@@ -4,6 +4,10 @@ using DocumenterCitations
+ # `using SpecialFunctions` for all doctests
+ DocMeta.setdocmeta!(SpecialFunctions, :DocTestSetup, :(using SpecialFunctions); recursive=true)
+
++using DocstringTranslation
++@switchlang! :ja
++DocstringTranslation.switchtargetpackage!(SpecialFunctions)
++
+ bib = CitationBibliography(
+        joinpath(@__DIR__, "src", "refs.bi
+b");
+        style = :authoryear,
 ```
 
 ---
 
-## Deliverables
+### Translation of Documenter.jl based documents
+
+![](assets/gamma_documenter.png)
+
+
+---
+
+## About Caching Translation Results
+
+- Save translation results locally using Scratch.jl
+- Prevent calling the API every time the REPL starts
+- By editing `<lang>.md` (e.g., `ja.md`), you can modify translation results
+- Translation results can be shared among users
+
+```
+$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
+├── Base
+│   └── 1.11
+│       └── Math
+│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe
+│               ├── ja.md
+│               └── original.md
+└── LinearAlgebra
+    └── 1.11
+        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46
+            ├── ja.md
+            └── original.md
+
+8 directories, 4 files
+```
+
+---
+
+## Translation Results of Julia Manual
 
 **Multilingual Julia Documentation**:
+
 - [Japanese](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
 - [Korean](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
 - [Chinese](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
 - [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
 - [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
 - [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
+```
 
-**Related Packages**:
-- DocstringTranslationOllamaBackend.jl (Ollama support)
-- DocstringTranslationGoogleTransBackend.jl (Google Translate support)
+---
+
+## Others
+
+- DocstringTranslationOllamaBackend.jl (Ollama Backend)
 
 ---
 
 ## Demo
 
-Let's actually run the translation feature!
+Let's actually try out the translation feature!
 
 ---
 
 ## Summary
 
-- Achieved multilingualization of Julia documentation
-- Supports both docstring and Documenter.jl
-- Efficiency with translation result caching
+- Achieving multilingual support for Julia documentation
+- Compatible with both docstring and Documenter.jl
+- Efficiency through translation result caching
 - Supports multiple translation backends
 
 **Future Prospects**:
-- Improve translation quality
-- Support for more languages
-- Share translation results within the community
+- Improving translation quality
+- Supporting more languages
+- Sharing translation results within the community
 
 ---
 
 ## Thank You
 
-**Repositories**:
+**Repository**:
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl)
-- [DocumenterTranslationOpenAIBackend.jl](https://github.com/AtelierArith/DocumenterTranslationOpenAIBackend.jl)
-
-**Questions and discussions are welcome!**
-
