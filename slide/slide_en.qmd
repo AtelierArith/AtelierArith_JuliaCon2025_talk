@@ -26,9 +26,9 @@ format:
 ## Background and Issues
 
 - Julia's official documentation is written in **English**
-- High psychological and time cost for non-English speaking developers
-  - Everyone is busy
-- Latest information is only available in English
+- The latest information is only available in English
+- For developers in non-English speaking regions, reading and discussing in English is a psychological and time-consuming cost
+- Translation work takes time
 
 **Solution**: Build an automatic translation system using machine translation
 
@@ -241,7 +241,7 @@ b");
 
 ## About Caching Translation Results
 
-- Save translation results to the local environment using Scratch.jl
+- Save translation results locally using Scratch.jl
 - Prevent calling the API every time the REPL starts
 - You can modify translation results by editing `<lang>.md` (e.g., `ja.md`)
 - Translation results can be shared among users
@@ -281,7 +281,7 @@ Let's actually run the translation feature!
 
 - Achieve multilingual support for Julia documentation
 - Compatible with both docstring and Documenter.jl
-- Efficiency with translation result caching feature
+- Efficiency through translation result caching
 - Support for multiple translation backends
 
 **Future Prospects**:
