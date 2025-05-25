@@ -234,7 +234,6 @@ b");
 - [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
 - [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
 - [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
-```
 
 ---
 
@@ -284,6 +283,7 @@ Let's actually run the translation feature!
 - Support for multiple translation backends
 
 **Future Prospects**:
+
 - Improve translation quality
 - Support for more languages
 - Sharing translation results within the community
