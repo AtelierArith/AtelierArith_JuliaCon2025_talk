@@ -1,4 +1,3 @@
-```markdown
 ---
 title: Let's read Julia documentation in your preferred language
 author: SatoshiTerasaki@AtelierArith
@@ -142,4 +141,4 @@ Let's actually run the translation feature!
 - [DocumenterTranslationOpenAIBackend.jl](https://github.com/AtelierArith/DocumenterTranslationOpenAIBackend.jl)
 
 **Questions and discussions are welcome!**
-```
+
