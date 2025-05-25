@@ -1,3 +1,4 @@
+```markdown
 ---
 title: Let's read Julia documentation in your preferred language
 author: SatoshiTerasaki@AtelierArith
@@ -25,17 +26,25 @@ format:
 ## Background and Issues
 
 - Julia's official documentation is written in **English**
-- High psychological and time costs for non-English speaking developers
+- High psychological and time cost for non-English speaking developers
   - Everyone is busy
-- The latest information is only available in English
+- Latest information is only available in English
 
 **Solution**: Build an automatic translation system using machine translation
 
 ---
 
-## DocstringTranslation.jl
+## What is DocstringTranslation.jl?
 
-A package to translate Julia's docstrings into your preferred language
+<video controls>
+  <source src="assets/demo.mov" type="video/mp4">
+</video>
+
+---
+
+## What is DocstringTranslation.jl?
+
+A package that translates Julia's docstring into your preferred language
 
 :::: {.columns}
 
@@ -151,7 +160,7 @@ julia> @doc exp
 
 ## Translation Mechanism
 
-- `@switchlang! :ja` overwrites the `Docs.parsedoc(d::DocStr)` method.
+- `@switchlang! :ja` overrides the `Docs.parsedoc(d::DocStr)` method.
 
 ```julia
 # Rough sketch
@@ -226,15 +235,16 @@ b");
 - [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
 - [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
 - [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
+```
 
 ---
 
-## Caching of Translation Results
+## About Caching Translation Results
 
-- Save translation results locally using Scratch.jl
-- Prevent API calls every time the REPL starts
-- Modify translation results by editing `<lang>.md` (e.g., `ja.md`)
-- Share translation results among users
+- Save translation results to the local environment using Scratch.jl
+- Prevent calling the API every time the REPL starts
+- You can modify translation results by editing `<lang>.md` (e.g., `ja.md`)
+- Translation results can be shared among users
 
 ```
 $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
@@ -263,20 +273,20 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ## Demo
 
-Let's actually try out the translation feature!
+Let's actually run the translation feature!
 
 ---
 
 ## Summary
 
-- Achieving multilingual support for Julia documentation
-- Supports both docstring and Documenter.jl
-- Efficiency through translation result caching
-- Supports multiple translation backends
+- Achieve multilingual support for Julia documentation
+- Compatible with both docstring and Documenter.jl
+- Efficiency with translation result caching feature
+- Support for multiple translation backends
 
 **Future Prospects**:
-- Improving translation quality
-- Supporting more languages
+- Improve translation quality
+- Support for more languages
 - Sharing translation results within the community
 
 ---

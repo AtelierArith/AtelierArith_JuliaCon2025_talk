@@ -33,7 +33,15 @@ format:
 
 ---
 
-## DocstringTranslation.jl
+## What is DocstringTranslation.jl?
+
+<video controls>
+  <source src="assets/demo.mov" type="video/mp4">
+</video>
+
+---
+
+## What is DocstringTranslation.jl?
 
 Julia の docstring を好きな言語に翻訳するパッケージ
 
