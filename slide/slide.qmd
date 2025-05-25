@@ -214,6 +214,18 @@ b");
 
 ![](assets/gamma_documenter.png)
 
+---
+
+## Julia マニュアルの翻訳結果
+
+**多言語 Julia ドキュメント**:
+
+- [日本語](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
+- [韓国語](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
+- [中国語](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
+- [ドイツ語](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
+- [フランス語](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
+- [スペイン語](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
 
 ---
 
@@ -240,19 +252,6 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 8 directories, 4 files
 ```
-
----
-
-## Julia マニュアルの翻訳結果
-
-**多言語 Julia ドキュメント**:
-
-- [日本語](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
-- [韓国語](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
-- [中国語](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
-- [ドイツ語](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
-- [フランス語](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
-- [スペイン語](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
 
 ---
 
@@ -285,5 +284,6 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 ## ありがとうございました
 
 **リポジトリ**:
+
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl)
 

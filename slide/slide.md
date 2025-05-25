@@ -14,28 +14,28 @@ format:
     mermaid-format: png
 ---
 
-# Overview
+# 概要
 
-- Introduction to DocstringTranslation.jl
-- Multilingual translation of Julia documentation
-- Run a demo
+- DocstringTranslation.jl の紹介
+- Julia ドキュメントの多言語翻訳
+- デモを実行
 
 ---
 
-## Background and Issues
+## 背景・課題
 
-- Julia's official documentation is written in **English**
-- High psychological and time costs for non-English speaking developers
-  - Everyone is busy
-- The latest information is only available in English
+- Julia の公式ドキュメントは **英語** で書かれている
+- 非英語圏の開発者にとって心理的・時間的コストが高い
+  - みんな忙しい
+- 最新情報は英語でしか提供されない
 
-**Solution**: Build an automatic translation system using machine translation
+**解決策**: 機械翻訳を活用した自動翻訳システムの構築
 
 ---
 
 ## DocstringTranslation.jl
 
-A package to translate Julia's docstrings into your preferred language
+Julia の docstring を好きな言語に翻訳するパッケージ
 
 :::: {.columns}
 
@@ -149,9 +149,9 @@ julia> @doc exp
 
 ---
 
-## Translation Mechanism
+## 翻訳の仕組み
 
-- `@switchlang! :ja` overwrites the `Docs.parsedoc(d::DocStr)` method.
+- `@switchlang! :ja` は `Docs.parsedoc(d::DocStr)` メソッドを上書きする．
 
 ```julia
 # Rough sketch
@@ -214,27 +214,15 @@ b");
 
 ![](assets/gamma_documenter.png)
 
----
-
-## Translation Results of Julia Manual
-
-**Multilingual Julia Documentation**:
-
-- [Japanese](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
-- [Korean](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
-- [Chinese](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
-- [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
-- [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
-- [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
 
 ---
 
-## Caching of Translation Results
+## 翻訳結果のキャッシュについて
 
-- Save translation results locally using Scratch.jl
-- Prevent API calls every time the REPL starts
-- Modify translation results by editing `<lang>.md` (e.g., `ja.md`)
-- Share translation results among users
+- Scratch.jl を使って翻訳結果をローカル環境に保存
+- REPL の起動時に毎回 API を呼び出すことを抑制する
+- `<lang>.md` (e.g., `ja.md`) を編集することで翻訳結果を修正が可能
+- 翻訳結果をユーザ間で共有可能
 
 ```
 $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
@@ -255,34 +243,47 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ---
 
-## Others
+## Julia マニュアルの翻訳結果
 
-- DocstringTranslationOllamaBackend.jl (Ollama Backend)
+**多言語 Julia ドキュメント**:
 
----
-
-## Demo
-
-Let's actually try out the translation feature!
-
----
-
-## Summary
-
-- Achieving multilingual support for Julia documentation
-- Supports both docstring and Documenter.jl
-- Efficiency through translation result caching
-- Supports multiple translation backends
-
-**Future Prospects**:
-- Improving translation quality
-- Supporting more languages
-- Sharing translation results within the community
+- [日本語](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
+- [韓国語](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
+- [中国語](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
+- [ドイツ語](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
+- [フランス語](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
+- [スペイン語](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
 
 ---
 
-## Thank You
+## その他
 
-**Repository**:
+- DocstringTranslationOllamaBackend.jl (Ollama バックエンド)
 
+---
+
+## デモ
+
+実際に翻訳機能を動かしてみましょう！
+
+---
+
+## まとめ
+
+- Julia ドキュメントの多言語化を実現
+- docstring と Documenter.jl の両方に対応
+- 翻訳結果のキャッシュ機能で効率化
+- 複数の翻訳バックエンドをサポート
+
+**今後の展望**:
+- 翻訳品質の向上
+- より多くの言語への対応
+- コミュニティでの翻訳結果共有
+
+---
+
+## ありがとうございました
+
+**リポジトリ**:
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl)
+
