@@ -161,6 +161,13 @@
     "text": "翻訳結果のキャッシュについて\n\nScratch.jl を使って翻訳結果をローカル環境に保存\nREPL の起動時に毎回 API を呼び出すことを抑制する\n&lt;lang&gt;.md (e.g., ja.md) を編集することで翻訳結果を修正が可能\n翻訳結果をユーザ間で共有可能\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
   },
   {
+    "objectID": "slide/slide.html#google-colab",
+    "href": "slide/slide.html#google-colab",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Google Colab",
+    "text": "Google Colab\nキャッシュを共有することで OPENAI_API_KEY がない環境でも動作を可能にする"
+  },
+  {
     "objectID": "slide/slide.html#その他",
     "href": "slide/slide.html#その他",
     "title": "Let’s read Julia documentation in your preferred language",
