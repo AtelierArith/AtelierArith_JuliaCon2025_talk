@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Let’s read Julia documentation in your preffered language",
+    "section": "",
+    "text": "このWebページでは JuliaCon 2025 で話す資料・リンクを格納する.\n\nslide\n\nMarkdown で記述された Julia のドキュメントを翻訳する技術についての提案をします．提案された手法は主に英語を母国語としない人々を補助する役割を持ちます．\n\nslide (EN)\n\nTBD\nThis slide is traslated from slide above via ChatGPT API using chagtpt-md-translator"
+  },
+  {
+    "objectID": "index.html#description",
+    "href": "index.html#description",
+    "title": "Let’s read Julia documentation in your preffered language",
+    "section": "",
+    "text": "このWebページでは JuliaCon 2025 で話す資料・リンクを格納する.\n\nslide\n\nMarkdown で記述された Julia のドキュメントを翻訳する技術についての提案をします．提案された手法は主に英語を母国語としない人々を補助する役割を持ちます．\n\nslide (EN)\n\nTBD\nThis slide is traslated from slide above via ChatGPT API using chagtpt-md-translator"
+  },
+  {
+    "objectID": "index.html#appendix",
+    "href": "index.html#appendix",
+    "title": "Let’s read Julia documentation in your preffered language",
+    "section": "Appendix",
+    "text": "Appendix\n\nこのページは Quarto を使って構築されている．qmd ファイルは こちら で管理されている．読者は教育・研究目的であれば自由に使用ができる．\nThis page is built using Quarto. The qmd files are maintained at here. Readers are free to use them for educational and research purposes."
+  },
+  {
+    "objectID": "slide/slide_en.html#背景課題",
+    "href": "slide/slide_en.html#背景課題",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "背景・課題",
+    "text": "背景・課題\n\nJulia の公式ドキュメントは 英語 で書かれている\n最新情報は英語でしか提供されない\n非英語圏の開発者にとって英語の読解・議論は心理的・時間的コストが高い\n翻訳作業は時間がかかる\n\n解決策: 機械翻訳を活用した自動翻訳システムの構築"
+  },
+  {
+    "objectID": "slide/slide_en.html#what-is-docstringtranslation.jl",
+    "href": "slide/slide_en.html#what-is-docstringtranslation.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?"
+  },
+  {
+    "objectID": "slide/slide_en.html#what-is-docstringtranslation.jl-1",
+    "href": "slide/slide_en.html#what-is-docstringtranslation.jl-1",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?\nJulia の docstring を好きな言語に翻訳するパッケージ\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10 and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined by\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm\n  (see [^H05]) is chosen.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。これは次のように定義されます。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\\H05]を参照）。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+  },
+  {
+    "objectID": "slide/slide_en.html#翻訳の仕組み",
+    "href": "slide/slide_en.html#翻訳の仕組み",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "翻訳の仕組み",
+    "text": "翻訳の仕組み\n\n@switchlang! :ja は Docs.parsedoc(d::DocStr) メソッドを上書きする．\n\n# Rough sketch\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # hack\n          translated_md = translate_docstring_with_openai(md)\n        end # hack\n        d.object = translated_md\n    end\n    d.object\nend\nSee the actual implementation to learn more."
+  },
+  {
+    "objectID": "slide/slide_en.html#docstrings-on-ijulia.jl",
+    "href": "slide/slide_en.html#docstrings-on-ijulia.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Docstrings on IJulia.jl",
+    "text": "Docstrings on IJulia.jl\nWe can read translated docstrings on Jupyter"
+  },
+  {
+    "objectID": "slide/slide_en.html#live-docs-on-pluto.jl",
+    "href": "slide/slide_en.html#live-docs-on-pluto.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Live Docs on Pluto.jl",
+    "text": "Live Docs on Pluto.jl\nWe can read translated docstrings on Pluto"
+  },
+  {
+    "objectID": "slide/slide_en.html#julia-マニュアルの翻訳結果",
+    "href": "slide/slide_en.html#julia-マニュアルの翻訳結果",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Julia マニュアルの翻訳結果",
+    "text": "Julia マニュアルの翻訳結果\n多言語 Julia ドキュメント:\n\n日本語\n韓国語\n中国語\nドイツ語\nフランス語\nスペイン語"
+  },
+  {
+    "objectID": "slide/slide_en.html#翻訳結果のキャッシュについて",
+    "href": "slide/slide_en.html#翻訳結果のキャッシュについて",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "翻訳結果のキャッシュについて",
+    "text": "翻訳結果のキャッシュについて\n\nScratch.jl を使って翻訳結果をローカル環境に保存\nREPL の起動時に毎回 API を呼び出すことを抑制する\n&lt;lang&gt;.md (e.g., ja.md) を編集することで翻訳結果を修正が可能\n翻訳結果をユーザ間で共有可能\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
+  },
+  {
+    "objectID": "slide/slide_en.html#その他",
+    "href": "slide/slide_en.html#その他",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "その他",
+    "text": "その他\n\nDocstringTranslationOllamaBackend.jl (Ollama バックエンド)"
+  },
+  {
+    "objectID": "slide/slide_en.html#デモ",
+    "href": "slide/slide_en.html#デモ",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "デモ",
+    "text": "デモ\n実際に翻訳機能を動かしてみましょう！"
+  },
+  {
+    "objectID": "slide/slide_en.html#まとめ",
+    "href": "slide/slide_en.html#まとめ",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "まとめ",
+    "text": "まとめ\n\nJulia ドキュメントの多言語化を実現\ndocstring と Documenter.jl の両方に対応\n翻訳結果のキャッシュ機能で効率化\n複数の翻訳バックエンドをサポート\n\n今後の展望: - 翻訳品質の向上 - より多くの言語への対応 - コミュニティでの翻訳結果共有"
+  },
+  {
+    "objectID": "slide/slide_en.html#ありがとうございました",
+    "href": "slide/slide_en.html#ありがとうございました",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "ありがとうございました",
+    "text": "ありがとうございました\nリポジトリ:\n\nDocstringTranslation.jl"
+  },
+  {
+    "objectID": "slide/slide.html#背景課題",
+    "href": "slide/slide.html#背景課題",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "背景・課題",
+    "text": "背景・課題\n\nJulia の公式ドキュメントは 英語 で書かれている\n最新情報は英語でしか提供されない\n非英語圏の開発者にとって英語の読解・議論は心理的・時間的コストが高い\n翻訳作業は時間がかかる\n\n解決策: 機械翻訳を活用した自動翻訳システムの構築"
+  },
+  {
+    "objectID": "slide/slide.html#what-is-docstringtranslation.jl",
+    "href": "slide/slide.html#what-is-docstringtranslation.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?"
+  },
+  {
+    "objectID": "slide/slide.html#what-is-docstringtranslation.jl-1",
+    "href": "slide/slide.html#what-is-docstringtranslation.jl-1",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?\nJulia の docstring を好きな言語に翻訳するパッケージ\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10 and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined by\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm\n  (see [^H05]) is chosen.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。これは次のように定義されます。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\\H05]を参照）。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+  },
+  {
+    "objectID": "slide/slide.html#翻訳の仕組み",
+    "href": "slide/slide.html#翻訳の仕組み",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "翻訳の仕組み",
+    "text": "翻訳の仕組み\n\n@switchlang! :ja は Docs.parsedoc(d::DocStr) メソッドを上書きする．\n\n# Rough sketch\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # hack\n          translated_md = translate_docstring_with_openai(md)\n        end # hack\n        d.object = translated_md\n    end\n    d.object\nend\nSee the actual implementation to learn more."
+  },
+  {
+    "objectID": "slide/slide.html#docstrings-on-ijulia.jl",
+    "href": "slide/slide.html#docstrings-on-ijulia.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Docstrings on IJulia.jl",
+    "text": "Docstrings on IJulia.jl\nWe can read translated docstrings on Jupyter"
+  },
+  {
+    "objectID": "slide/slide.html#live-docs-on-pluto.jl",
+    "href": "slide/slide.html#live-docs-on-pluto.jl",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Live Docs on Pluto.jl",
+    "text": "Live Docs on Pluto.jl\nWe can read translated docstrings on Pluto"
+  },
+  {
+    "objectID": "slide/slide.html#julia-マニュアルの翻訳結果",
+    "href": "slide/slide.html#julia-マニュアルの翻訳結果",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Julia マニュアルの翻訳結果",
+    "text": "Julia マニュアルの翻訳結果\n多言語 Julia ドキュメント:\n\n日本語\n韓国語\n中国語\nドイツ語\nフランス語\nスペイン語"
+  },
+  {
+    "objectID": "slide/slide.html#翻訳結果のキャッシュについて",
+    "href": "slide/slide.html#翻訳結果のキャッシュについて",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "翻訳結果のキャッシュについて",
+    "text": "翻訳結果のキャッシュについて\n\nScratch.jl を使って翻訳結果をローカル環境に保存\nREPL の起動時に毎回 API を呼び出すことを抑制する\n&lt;lang&gt;.md (e.g., ja.md) を編集することで翻訳結果を修正が可能\n翻訳結果をユーザ間で共有可能\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
+  },
+  {
+    "objectID": "slide/slide.html#その他",
+    "href": "slide/slide.html#その他",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "その他",
+    "text": "その他\n\nDocstringTranslationOllamaBackend.jl (Ollama バックエンド)"
+  },
+  {
+    "objectID": "slide/slide.html#デモ",
+    "href": "slide/slide.html#デモ",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "デモ",
+    "text": "デモ\n実際に翻訳機能を動かしてみましょう！"
+  },
+  {
+    "objectID": "slide/slide.html#まとめ",
+    "href": "slide/slide.html#まとめ",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "まとめ",
+    "text": "まとめ\n\nJulia ドキュメントの多言語化を実現\ndocstring と Documenter.jl の両方に対応\n翻訳結果のキャッシュ機能で効率化\n複数の翻訳バックエンドをサポート\n\n今後の展望: - 翻訳品質の向上 - より多くの言語への対応 - コミュニティでの翻訳結果共有"
+  },
+  {
+    "objectID": "slide/slide.html#ありがとうございました",
+    "href": "slide/slide.html#ありがとうございました",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "ありがとうございました",
+    "text": "ありがとうございました\nリポジトリ:\n\nDocstringTranslation.jl"
+  }
+]
