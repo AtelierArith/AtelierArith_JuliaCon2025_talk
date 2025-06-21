@@ -265,6 +265,14 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ---
 
+## Google Colab
+
+キャッシュを共有することで OPENAI_API_KEY がない環境でも動作を可能にする
+
+![](assets/google_colab.png)
+
+---
+
 ## その他
 
 - DocstringTranslationOllamaBackend.jl (Ollama バックエンド)
