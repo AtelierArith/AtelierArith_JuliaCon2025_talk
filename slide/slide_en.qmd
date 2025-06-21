@@ -1,3 +1,4 @@
+```markdown
 ---
 title: Let's read Julia documentation in your preferred language
 author: SatoshiTerasaki@AtelierArith
@@ -25,8 +26,8 @@ format:
 ## Background and Issues
 
 - Julia's official documentation is written in **English**
-- The latest information is only available in English
-- For developers in non-English speaking regions, reading and discussing in English is a psychological and time-consuming cost
+- Latest information is only available in English
+- For non-English speaking developers, reading and discussing in English is a psychological and time-consuming cost
 - Translation work takes time
 
 **Solution**: Build an automatic translation system using machine translation
@@ -234,15 +235,16 @@ b");
 - [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
 - [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
 - [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
+```
 
 ---
 
 ## About Caching Translation Results
 
 - Save translation results locally using Scratch.jl
-- Prevent calling the API every time the REPL starts
-- You can modify translation results by editing `<lang>.md` (e.g., `ja.md`)
-- Translation results can be shared among users
+- Prevent API calls every time the REPL starts
+- Edit `<lang>.md` (e.g., `ja.md`) to modify translation results
+- Share translation results among users
 
 ```
 $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
@@ -278,15 +280,14 @@ Let's actually run the translation feature!
 ## Summary
 
 - Achieve multilingual support for Julia documentation
-- Compatible with both docstring and Documenter.jl
-- Efficiency through translation result caching
-- Support for multiple translation backends
+- Support both docstring and Documenter.jl
+- Improve efficiency with translation result caching
+- Support multiple translation backends
 
 **Future Prospects**:
-
 - Improve translation quality
-- Support for more languages
-- Sharing translation results within the community
+- Support more languages
+- Share translation results within the community
 
 ---
 
