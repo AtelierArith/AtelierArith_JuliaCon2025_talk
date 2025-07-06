@@ -236,6 +236,8 @@ b");
 - [ドイツ語](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
 - [フランス語](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
 - [スペイン語](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
+- [アラビア語](https://atelierarith.github.io/UnofficialJuliaDoc-ar/)
+- [ロシア語](https://atelierarith.github.io/UnofficialJuliaDoc-ru/)
 
 ---
 
