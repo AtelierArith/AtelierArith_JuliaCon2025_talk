@@ -1,5 +1,5 @@
 ---
-title: "Let's Read Julia Documentation in Your Preferred Language"
+title: "Let’s read Julia documentation in your preferred language"
 ---
 
 ## Description
