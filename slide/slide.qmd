@@ -14,29 +14,29 @@ format:
     mermaid-format: png
 ---
 
-# 概要
+# Overview
 
-- DocstringTranslation.jl の紹介
-- Julia ドキュメントの多言語翻訳
-- デモを実行
+- Introduction to DocstringTranslation.jl
+- Multilingual translation of Julia documentation
+- Running demonstration
 
 ---
 
-## 背景・課題
+## Background and Challenges
 
-- Julia の公式ドキュメントは **英語** で書かれている
-- 最新情報は英語でしか提供されない
-- 非英語圏の開発者にとって英語の読解・議論は心理的・時間的コストが高い
-- 翻訳作業は時間がかかる
+- Julia's official documentation is exclusively written in **English**
+- All up-to-date information is provided only in English
+- For non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs
+- The translation process itself is time-consuming
 
-**解決策**: 機械翻訳を活用した自動翻訳システムの構築
+**Solution**: Developing an automated translation system utilizing machine translation
 - DocstringTranslation.jl 😎
 
 ---
 
 ## What is DocstringTranslation.jl?
 
-Julia の docstring を好きな言語に翻訳するパッケージ
+A package for translating Julia docstrings into any preferred language
 
 :::: {.columns}
 
@@ -50,7 +50,7 @@ julia> @doc exp
 
   Compute the natural base exponential of x, in other words ℯ^x.
 
-  See also exp2, exp10 and cis.
+  See also exp2, exp10, and cis.
 
   Examples
   ≡≡≡≡≡≡≡≡
@@ -63,12 +63,12 @@ julia> @doc exp
 
   exp(A::AbstractMatrix)
 
-  Compute the matrix exponential of A, defined by
+  Compute the matrix exponential of A, defined as:
 
   e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}.
 
-  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm
-  (see [^H05]) is chosen.
+  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm
+  (see [^H05]) is employed.
 
   │ [^H05]
   │
@@ -88,7 +88,6 @@ julia> @doc exp
   2×2 Matrix{Float64}:
    2.71828  0.0
    0.0      2.71828
-
 ```
 :::
 
@@ -103,11 +102,11 @@ julia> @switchlang! :ja
 julia> @doc exp
   exp(x)
 
-  xの自然基底指数を計算します。言い換えれば、ℯ^xです。
+  Compute the natural base exponential of x, in other words ℯ^x.
 
-  他にexp2、exp10、およびcisも参照してください。
+  Also see exp2, exp10, and cis.
 
-  例
+  Examples
   ≡≡
 
   julia> exp(1.0)
@@ -118,12 +117,12 @@ julia> @doc exp
 
   exp(A::AbstractMatrix)
 
-  行列 A の行列指数関数を計算します。これは次のように定義されます。
+  Compute the matrix exponential of matrix A, defined as:
 
   e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}.
 
-  対称行列またはエルミート行列 A
-  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\H05]を参照）。
+  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm
+  (see [^H05]) is employed.
 
   │ [^H05]
   │
@@ -131,7 +130,7 @@ julia> @doc exp
   │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539
   │  (https://doi.org/10.1137/090768539)
 
-  例
+  Examples
   ≡≡
 
   julia> A = Matrix(1.0I, 2, 2)
@@ -159,33 +158,33 @@ julia> @doc exp
 
 ---
 
-## 翻訳の仕組み
+## How Translation Works
 
-- `@switchlang! :ja` は `Docs.parsedoc(d::DocStr)` メソッドを上書きする．
+- `@switchlang! :ja` overrides the `Docs.parsedoc(d::DocStr)` method.
 
 ```julia
-# Rough sketch
+# Rough implementation outline
 @eval function Docs.parsedoc(d::DocStr)
     if d.object === nothing
         md = Docs.formatdoc(d)
         md.meta[:module] = d.data[:module]
         md.meta[:path] = d.data[:path]
-        begin # hack
+        begin # workaround
           translated_md = translate_docstring_with_openai(md)
-        end # hack
+        end # workaround
         d.object = translated_md
     end
     d.object
 end
 ```
 
-See the [actual implementation](https://github.com/AtelierArith/DocstringTranslation.jl/blob/77eb4e187d30c9e82a0e4f078742b5c2af7f0845/src/switchlang.jl#L24-L51) to learn more.
+For more details, refer to the [actual implementation](https://github.com/AtelierArith/DocstringTranslation.jl/blob/77eb4e187d30c9e82a0e4f078742b5c2af7f0845/src/switchlang.jl#L24-L51).
 
 ---
 
 ## Docstrings on IJulia.jl
 
-We can read translated docstrings on Jupyter
+We can view translated docstrings in Jupyter
 
 ![](assets/jupyter_eigen.png)
 
@@ -193,13 +192,13 @@ We can read translated docstrings on Jupyter
 
 ## Live Docs on Pluto.jl
 
-We can read translated docstrings on Pluto
+We can view translated docstrings in Pluto
 
 ![](assets/pluto_eigen.png)
 
 ---
 
-### Translation of Documenter.jl based documents
+### Translation of Documenter.jl-based documentation
 
 ```diff
 --- a/docs/make.jl
@@ -220,33 +219,33 @@ b");
 
 ---
 
-### Translation of Documenter.jl based documents
+### Translation of Documenter.jl-based documentation
 
 ![](assets/gamma_documenter.png)
 
 ---
 
-## Julia マニュアルの翻訳結果
+## Translation Results for Julia's Official Documentation
 
-**多言語 Julia ドキュメント**:
+**Multilingual Julia Documentation**:
 
-- [日本語](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
-- [韓国語](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
-- [中国語](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
-- [ドイツ語](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
-- [フランス語](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
-- [スペイン語](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
-- [アラビア語](https://atelierarith.github.io/UnofficialJuliaDoc-ar/)
-- [ロシア語](https://atelierarith.github.io/UnofficialJuliaDoc-ru/)
+- [Japanese](https://atelierarith.github.io/UnofficialJuliaDoc-ja/)
+- [Korean](https://atelierarith.github.io/UnofficialJuliaDoc-ko/)
+- [Chinese](https://atelierarith.github.io/UnofficialJuliaDoc-zh/)
+- [German](https://atelierarith.github.io/UnofficialJuliaDoc-de/)
+- [French](https://atelierarith.github.io/UnofficialJuliaDoc-fr/)
+- [Spanish](https://atelierarith.github.io/UnofficialJuliaDoc-es/)
+- [Arabic](https://atelierarith.github.io/UnofficialJuliaDoc-ar/)
+- [Russian](https://atelierarith.github.io/UnofficialJuliaDoc-ru/)
 
 ---
 
-## 翻訳結果のキャッシュについて
+## About Result Caching
 
-- Scratch.jl を使って翻訳結果をローカル環境に保存
-- REPL の起動時に毎回 API を呼び出すことを抑制する
-- `<lang>.md` (e.g., `ja.md`) を編集することで翻訳結果を修正が可能
-- 翻訳結果をユーザ間で共有可能
+- Uses Scratch.jl to store translation results locally
+- Prevents repeated API calls each time the REPL starts
+- Allows modification of translation results by editing `<lang>.md` files (e.g., `ja.md`)
+- Enables sharing of translation results among users
 
 ```
 $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
@@ -267,43 +266,36 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ---
 
-## Google Colab
+## Additional Information
 
-キャッシュを共有することで OPENAI_API_KEY がない環境でも動作を可能にする
-
-![](assets/google_colab.png)
+- DocstringTranslationOllamaBackend.jl (Ollama backend)
 
 ---
 
-## その他
+## Demo
 
-- DocstringTranslationOllamaBackend.jl (Ollama バックエンド)
-
----
-
-## デモ
-
-実際に翻訳機能を動かしてみましょう！
+Let's see the translation functionality in action!
 
 ---
 
-## まとめ
+## Summary
 
-- Julia ドキュメントの多言語化を実現
-- docstring と Documenter.jl の両方に対応
-- 翻訳結果のキャッシュ機能で効率化
-- 複数の翻訳バックエンドをサポート
+- Enables multilingual support for Julia documentation
+- Supports both docstrings and Documenter.jl
+- Improves efficiency through result caching
+- Supports multiple translation backends
 
-**今後の展望**:
-- 翻訳品質の向上
-- より多くの言語への対応
-- コミュニティでの翻訳結果共有
+**Future Plans**:
+- Enhance translation quality
+- Add support for more languages
+- Facilitate community sharing of translation results
 
 ---
 
-## ありがとうございました
+## Thank You
 
-**リポジトリ**:
+**Repositories**:
 
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl)
+
 
