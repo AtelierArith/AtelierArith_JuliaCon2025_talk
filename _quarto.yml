@@ -2,7 +2,8 @@ project:
   type: website
 
 website:
-  title: "非英語圏における Julia ユーザのための技術"
+  title: "Let’s read Julia documentation in your preferred language
+"
   navbar:
     left:
       - href: slide/slide.qmd
