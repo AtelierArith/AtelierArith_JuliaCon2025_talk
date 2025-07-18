@@ -14,7 +14,7 @@ format:
     mermaid-format: png
 ---
 
-# Link to slide
+# Link to this slide
 
 [https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide](https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide)
 
@@ -22,7 +22,7 @@ format:
 
 ---
 
-# Overview
+## Overview
 
 - Introduction to DocstringTranslation.jl
 - Multilingual translation of Julia documentation
@@ -40,9 +40,10 @@ if you in Set(NativeEnglishSpeakers)
 elseif you ∈ Set(GoodAtReadingEnglish)
     println("It's O.K.")
 else
+    lang = native_language(you) # e.g., Japanese
+    @assert lang ≠ "English"
     println("Meh.")
     println("It takes a lot of time to understand correctly.")
-    lang = native_language(you) # e.g., Japanese
     println("I want to read documentation in $(lang)")
 end
 ```
@@ -52,19 +53,22 @@ end
 - All up-to-date information is provided only in English
   - It's O.K. English is a common language
 - For non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs
+  - This is a yet another two-language problem
 - Manual translation processes require significant time
 
 ---
 
 ## Challenges (in Japan)
 
-- the number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
-- In Japan especially in industry, C++/Python is widely used in industry.
-     - "I don't want to use Julia because it is a minor language" C++ user says
-     - "Julia is difficult" C++ user says
-     - "Few libraries and documentation available for Julia
+- The number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
+- In Japan especially in industry, C++/Python is widely used in industry. There is lots of Japanese documentation (including blog post) for C++/Python. 
+  - "I don't want to use Julia because it is a minor language" C++ user says
+  - "Julia is difficult" C++ user says
+  - "Few libraries and documentation available for Julia
 " Python user says
-     - "Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my previous workplace (This is NOT a joke.)
+  - "Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
+
+---
 
 ## Challenges (in Japan)
 
