@@ -48,16 +48,20 @@ end
 
 ---
 
-## Background and Challenges
+## Challenges (in Japan)
 
-- In Japan (especially in industry)
-   - C++/Python is widely used in industry.
+- the number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
+- In Japan especially in industry, C++/Python is widely used in industry.
      - "I don't want to use Julia because it is a minor language" C++ user says
      - "Julia is difficult" C++ user says
      - "Few libraries and documentation available for Julia
 " Python user says
-   - the number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
-   - To grow the Julia community in Japan, I think we need documentation written in Japanese. That's why I created DocstringTranslation.jl package.
+     - "Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my previous workplace (This is NOT a joke.)
+
+## Challenges (in Japan)
+
+- Starting August 2025, I'll be unemployed. This Is Not a Drill. 
+- To grow the Julia community in Japan, I think we need documentation written in Japanese. That's why I created [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) package.
 
 ---
 
@@ -135,47 +139,38 @@ julia> using DocstringTranslation
 julia> @switchlang! :ja
 julia> @doc exp
   exp(x)
+  `x` の自然底の指数関数、すなわち $ℯ^x$ を計算します。
 
-  Compute the natural base exponential of x, in other words ℯ^x.
+  関連項目: [`exp2`](@ref)、[`exp10`](@ref)、[`cis`](@ref)。
 
-  Also see exp2, exp10, and cis.
+  # 使用例
 
-  Examples
-  ≡≡
 
-  julia> exp(1.0)
-  2.718281828459045
+  jldoctest julia> exp(1.0) 2.718281828459045
 
-  julia> exp(im * pi) ≈ cis(pi)
-  true
+  julia> exp(im * pi) ≈ cis(pi) true
+
+
 
   exp(A::AbstractMatrix)
+  `A` の行列指数関数を計算します。これは次式で定義されます:
 
-  Compute the matrix exponential of matrix A, defined as:
 
-  e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}.
+  math e^A = \sum_{n=0}^{\infty} \frac{A^n}{n!}
 
-  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm
-  (see [^H05]) is employed.
 
-  │ [^H05]
-  │
-  │  Nicholas J. Higham, "The squaring and scaling method for the matrix exponential revisited", SIAM Journal
-  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539
-  │  (https://doi.org/10.1137/090768539)
+  対称またはエルミート行列 `A` の場合、固有値分解 ([`eigen`](@ref)) が使用されます。それ以外の場合は、スケーリングと2乗アルゴリズム ([^H05]) が選択されます。
 
-  Examples
-  ≡≡
+  [^H05]: Nicholas J. Higham, "The squaring and scaling method for the matrix exponential revisited", SIAM Journal on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. [doi:10.1137/090768539](https://doi.org/10.1137/090768539)
 
-  julia> A = Matrix(1.0I, 2, 2)
-  2×2 Matrix{Float64}:
-   1.0  0.0
-   0.0  1.0
+  # 使用例
 
-  julia> exp(A)
-  2×2 Matrix{Float64}:
-   2.71828  0.0
-   0.0      2.71828
+
+  jldoctest julia> A = Matrix(1.0I, 2, 2) 2×2
+  Matrix{Float64}: 1.0 0.0 0.0 1.0
+
+  julia> exp(A) 2×2 Matrix{Float64}: 2.71828 0.0 0.0
+  2.71828
 ```
 :::
 
