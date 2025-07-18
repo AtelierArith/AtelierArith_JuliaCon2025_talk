@@ -147,25 +147,32 @@
     "text": "eta\nzeta"
   },
   {
+    "objectID": "slide/slide.html#overview",
+    "href": "slide/slide.html#overview",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Overview",
+    "text": "Overview\n\nIntroduction to DocstringTranslation.jl\nMultilingual translation of Julia documentation\nRunning demonstration"
+  },
+  {
     "objectID": "slide/slide.html#background-and-challenges",
     "href": "slide/slide.html#background-and-challenges",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Background and Challenges",
-    "text": "Background and Challenges\n\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    lang = native_language(you) # e.g., Japanese\n    println(\"I want to read documentation in $(lang)\")\nend"
+    "text": "Background and Challenges\n\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang)\")\nend"
   },
   {
     "objectID": "slide/slide.html#background-and-challenges-1",
     "href": "slide/slide.html#background-and-challenges-1",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Background and Challenges",
-    "text": "Background and Challenges\n\nAll up-to-date information is provided only in English\n\nIt’s O.K. English is a common language\n\nFor non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs\nManual translation processes require significant time"
+    "text": "Background and Challenges\n\nAll up-to-date information is provided only in English\n\nIt’s O.K. English is a common language\n\nFor non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs\n\nThis is a yet another two-language problem\n\nManual translation processes require significant time"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan",
     "href": "slide/slide.html#challenges-in-japan",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nthe number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.\nIn Japan especially in industry, C++/Python is widely used in industry.\n\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Few libraries and documentation available for Julia” Python user says\n“Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my previous workplace (This is NOT a joke.)"
+    "text": "Challenges (in Japan)\n\nThe number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.\nIn Japan especially in industry, C++/Python is widely used in industry. There is lots of Japanese documentation (including blog post) for C++/Python.\n\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Few libraries and documentation available for Julia” Python user says\n“Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan-1",
