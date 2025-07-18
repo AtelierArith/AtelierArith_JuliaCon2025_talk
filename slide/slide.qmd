@@ -24,19 +24,53 @@ format:
 
 ## Background and Challenges
 
-- Julia's official documentation is exclusively written in **English**
-- All up-to-date information is provided only in English
-- For non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs
-- The translation process itself is time-consuming
+- When you want to something to learn about Julia, we need to read [Julia's official documentation](https://docs.julialang.org/en/v1/) in **English**
 
-**Solution**: Developing an automated translation system utilizing machine translation
-- DocstringTranslation.jl 😎
+```julia
+if you in Set(NativeEnglishSpeakers)
+    println("No problem :D")
+elseif you ∈ Set(GoodAtReadingEnglish)
+    println("It's O.K.")
+else
+    println("Meh.")
+    println("It takes a lot of time to understand correctly.")
+    lang = native_language(you) # e.g., Japanese
+    println("I want to read documentation in $(lang)")
+end
+```
+
+## Background and Challenges
+
+- All up-to-date information is provided only in English
+  - It's O.K. English is a common language
+- For non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs
+- Manual translation processes require significant time
+
+---
+
+## Background and Challenges
+
+- In Japan (especially in industry)
+   - C++/Python is widely used in industry.
+     - "I don't want to use Julia because it is a minor language" C++ user says
+     - "Julia is difficult" C++ user says
+     - "Few libraries and documentation available for Julia
+" Python user says
+   - the number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
+   - To grow the Julia community in Japan, I think we need documentation written in Japanese. That's why I created DocstringTranslation.jl package.
+
+---
+
+## Solution
+
+- Developing an automated translation system utilizing machine translation
+    - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) 😎
 
 ---
 
 ## What is DocstringTranslation.jl?
 
-A package for translating Julia docstrings into any preferred language
+A package for translating Julia docstrings using OpenAI API
 
 :::: {.columns}
 
