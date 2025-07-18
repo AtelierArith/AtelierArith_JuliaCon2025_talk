@@ -24,14 +24,16 @@ format:
 
 ## Overview
 
+- Background and Challenges
 - Introduction to DocstringTranslation.jl
 - Multilingual translation of Julia documentation
-- Running demonstration
+- Running demonstration (if possible)
 
 ---
 
 ## Background and Challenges
 
+- Julia allows us to write code with high-level operations without losing execution performance (solving two-language problem)
 - When you want to something to learn about Julia, we need to read [Julia's official documentation](https://docs.julialang.org/en/v1/) in **English**
 
 ```julia
