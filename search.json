@@ -2,121 +2,191 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Let’s read Julia documentation in your preffered language",
+    "title": "Let’s read Julia documentation in your preferred language",
     "section": "",
-    "text": "このWebページでは JuliaCon 2025 で話す資料・リンクを格納する.\n\nslide\n\nMarkdown で記述された Julia のドキュメントを翻訳する技術についての提案をします．提案された手法は主に英語を母国語としない人々を補助する役割を持ちます．\n\nslide (EN)\n\nTBD\nThis slide is traslated from slide above via ChatGPT API using chagtpt-md-translator"
+    "text": "This webpage serves as a repository for the presentation materials and links I will be discussing at JuliaCon 2025.\n\nSlides\n\nI will present a proposal for a technology that translates Julia documentation written in Markdown. This proposed method primarily aims to assist non-native English speakers."
   },
   {
     "objectID": "index.html#description",
     "href": "index.html#description",
-    "title": "Let’s read Julia documentation in your preffered language",
+    "title": "Let’s read Julia documentation in your preferred language",
     "section": "",
-    "text": "このWebページでは JuliaCon 2025 で話す資料・リンクを格納する.\n\nslide\n\nMarkdown で記述された Julia のドキュメントを翻訳する技術についての提案をします．提案された手法は主に英語を母国語としない人々を補助する役割を持ちます．\n\nslide (EN)\n\nTBD\nThis slide is traslated from slide above via ChatGPT API using chagtpt-md-translator"
+    "text": "This webpage serves as a repository for the presentation materials and links I will be discussing at JuliaCon 2025.\n\nSlides\n\nI will present a proposal for a technology that translates Julia documentation written in Markdown. This proposed method primarily aims to assist non-native English speakers."
   },
   {
     "objectID": "index.html#appendix",
     "href": "index.html#appendix",
-    "title": "Let’s read Julia documentation in your preffered language",
+    "title": "Let’s read Julia documentation in your preferred language",
     "section": "Appendix",
-    "text": "Appendix\n\nこのページは Quarto を使って構築されている．qmd ファイルは こちら で管理されている．読者は教育・研究目的であれば自由に使用ができる．\nThis page is built using Quarto. The qmd files are maintained at here. Readers are free to use them for educational and research purposes."
+    "text": "Appendix\n\nThis page is built using Quarto. The qmd files are maintained at this repository. Readers are free to use these materials for educational and research purposes."
   },
   {
-    "objectID": "slide/slide_en.html#背景課題",
-    "href": "slide/slide_en.html#背景課題",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "背景・課題",
-    "text": "背景・課題\n\nJulia の公式ドキュメントは 英語 で書かれている\n最新情報は英語でしか提供されない\n非英語圏の開発者にとって英語の読解・議論は心理的・時間的コストが高い\n翻訳作業は時間がかかる\n\n解決策: 機械翻訳を活用した自動翻訳システムの構築"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/index.html",
+    "href": "demo/SpecialFunctions.jl/docs/src/index.html",
+    "title": "SpecialFunctions.jl",
+    "section": "",
+    "text": "SpecialFunctions.jl provides a comprehensive collection of special functions based on the OpenSpecFun and OpenLibm libraries.\nSpecial mathematical functions in Julia, include Bessel, Hankel, Airy, error, Dawson, exponential (or sine and cosine) integrals, eta, zeta, digamma, inverse digamma, trigamma, and polygamma functions.\n\n\nThe latest version of the package is available for Julia versions 1.3 and up. To install it, run the following at the Julia REPL:\nimport Pkg; Pkg.add(\"SpecialFunctions\")"
   },
   {
-    "objectID": "slide/slide_en.html#what-is-docstringtranslation.jl",
-    "href": "slide/slide_en.html#what-is-docstringtranslation.jl",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "What is DocstringTranslation.jl?",
-    "text": "What is DocstringTranslation.jl?"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/index.html#installation",
+    "href": "demo/SpecialFunctions.jl/docs/src/index.html#installation",
+    "title": "SpecialFunctions.jl",
+    "section": "",
+    "text": "The latest version of the package is available for Julia versions 1.3 and up. To install it, run the following at the Julia REPL:\nimport Pkg; Pkg.add(\"SpecialFunctions\")"
   },
   {
-    "objectID": "slide/slide_en.html#what-is-docstringtranslation.jl-1",
-    "href": "slide/slide_en.html#what-is-docstringtranslation.jl-1",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "What is DocstringTranslation.jl?",
-    "text": "What is DocstringTranslation.jl?\nJulia の docstring を好きな言語に翻訳するパッケージ\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10 and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined by\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm\n  (see [^H05]) is chosen.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。これは次のように定義されます。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\\H05]を参照）。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html",
+    "title": "Functions",
+    "section": "",
+    "text": "Here the Special Functions are listed according to the structure of NIST Digital Library of Mathematical Functions (DLMF).\n\n\nGamma Function - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\ngamma(z)\ngamma function \\Gamma(z)\n\n\nloggamma(x)\naccurate log(gamma(x)) for large x\n\n\nlogabsgamma(x)\naccurate log(abs(gamma(x))) for large x\n\n\nlogfactorial(x)\naccurate log(factorial(x)) for large x; same as loggamma(x+1) for x &gt; 1, zero otherwise\n\n\ndigamma(x)\ndigamma function (i.e. the derivative of loggamma at x)\n\n\ninvdigamma(x)\ninvdigamma function (i.e. inverse of digamma function at x using fixed-point iteration algorithm)\n\n\ntrigamma(x)\ntrigamma function (i.e the logarithmic second derivative of gamma at x)\n\n\npolygamma(m,x)\npolygamma function (i.e the (m+1)-th derivative of the loggamma function at x)\n\n\ngamma(a,z)\nupper incomplete gamma function \\Gamma(a,z)\n\n\nloggamma(a,z)\naccurate log(gamma(a,x)) for large arguments\n\n\ngamma_inc(a,x,IND)\nincomplete gamma function ratio P(a,x) and Q(a,x) (i.e evaluates P(a,x) and Q(a,x) for accuracy specified by IND and returns tuple (p,q))\n\n\ngamma_inc_inv(a,p,q)\ninverse of incomplete gamma function ratio P(a,x) and Q(a,x) (i.e evaluates x given P(a,x)=p and Q(a,x)=q)\n\n\nbeta(x,y)\nbeta function at x,y\n\n\nlogbeta(x,y)\naccurate log(beta(x,y)) for large x or y\n\n\nlogabsbeta(x,y)\naccurate log(abs(beta(x,y))) for large x or y\n\n\nlogabsbinomial(x,y)\naccurate log(abs(binomial(n,k))) for large n and k near n/2\n\n\nbeta_inc(a,b,x,y)\nincomplete beta function ratio I_x(a,b) and I_y(a,b) (i.e evaluates I_x(a,b) and I_y(a,b) and returns tuple (p,q))\n\n\nbeta_inc_inv(a,b,p,q)\nInverse of the incomplete beta function (i.e evaluates x given I_{x}(a, b) = p)\n\n\n\n\n\n\nExponential and Trigonometric Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nexpint(ν, z)\nexponential integral \\operatorname{E}_\\nu(z)\n\n\nexpinti(x)\nexponential integral \\operatorname{Ei}(x)\n\n\nexpintx(x)\nscaled exponential integral e^z \\operatorname{E}_\\nu(z)\n\n\nsinint(x)\nsine integral \\operatorname{Si}(x)\n\n\ncosint(x)\ncosine integral \\operatorname{Ci}(x)\n\n\n\n\n\n\nError Functions, Dawson’s and Fresnel Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nerf(x)\nerror function at x\n\n\nerf(x,y)\naccurate version of \\operatorname{erf}(y) - \\operatorname{erf}(x)\n\n\nerfc(x)\ncomplementary error function, i.e. the accurate version of 1-\\operatorname{erf}(x) for large x\n\n\nerfcinv(x)\ninverse function to erfc()\n\n\nerfcx(x)\nscaled complementary error function, i.e. accurate e^{x^2} \\operatorname{erfc}(x) for large x\n\n\nlogerfc(x)\nlog of the complementary error function, i.e. accurate \\operatorname{ln}(\\operatorname{erfc}(x)) for large x\n\n\nlogerfcx(x)\nlog of the scaled complementary error function, i.e. accurate \\operatorname{ln}(\\operatorname{erfcx}(x)) for large negative x\n\n\nerfi(x)\nimaginary error function defined as -i \\operatorname{erf}(ix)\n\n\nerfinv(x)\ninverse function to erf()\n\n\ndawson(x)\nscaled imaginary error function, a.k.a. Dawson function, i.e. accurate \\frac{\\sqrt{\\pi}}{2} e^{-x^2} \\operatorname{erfi}(x) for large x\n\n\nfaddeeva(x)\nFaddeeva function, equivalent to \\operatorname{erfcx}(-ix)\n\n\n\n\n\n\nAiry and Related Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nairyai(z)\nAiry Ai function at z\n\n\nairyaiprime(z)\nderivative of the Airy Ai function at z\n\n\nairybi(z)\nAiry Bi function at z\n\n\nairybiprime(z)\nderivative of the Airy Bi function at z\n\n\nairyaix(z), airyaiprimex(z), airybix(z), airybiprimex(z)\nscaled Airy Ai function and derivative at z\n\n\n\n\n\n\nBessel Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nbesselj(nu,z)\nBessel function of the first kind of order nu at z\n\n\nbesselj0(z)\nbesselj(0,z)\n\n\nbesselj1(z)\nbesselj(1,z)\n\n\nbesseljx(nu,z)\nscaled Bessel function of the first kind of order nu at z\n\n\nsphericalbesselj(nu,z)\nSpherical Bessel function of the first kind of order nu at z\n\n\nbessely(nu,z)\nBessel function of the second kind of order nu at z\n\n\nbessely0(z)\nbessely(0,z)\n\n\nbessely1(z)\nbessely(1,z)\n\n\nbesselyx(nu,z)\nscaled Bessel function of the second kind of order nu at z\n\n\nsphericalbessely(nu,z)\nSpherical Bessel function of the second kind of order nu at z\n\n\nbesselh(nu,k,z)\nBessel function of the third kind (a.k.a. Hankel function) of order nu at z; k must be either 1 or 2\n\n\nhankelh1(nu,z)\nbesselh(nu, 1, z)\n\n\nhankelh1x(nu,z)\nscaled besselh(nu, 1, z)\n\n\nhankelh2(nu,z)\nbesselh(nu, 2, z)\n\n\nhankelh2x(nu,z)\nscaled besselh(nu, 2, z)\n\n\nbesseli(nu,z)\nmodified Bessel function of the first kind of order nu at z\n\n\nbesselix(nu,z)\nscaled modified Bessel function of the first kind of order nu at z\n\n\nbesselk(nu,z)\nmodified Bessel function of the second kind of order nu at z\n\n\nbesselkx(nu,z)\nscaled modified Bessel function of the second kind of order nu at z\n\n\njinc(x)\nscaled Bessel function of the first kind divided by x. A.k.a. sombrero or besinc\n\n\n\n\n\n\nElliptic Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nellipk(m)\ncomplete elliptic integral of 1st kind K(m)\n\n\nellipe(m)\ncomplete elliptic integral of 2nd kind E(m)\n\n\n\n\n\n\nZeta and Related Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\neta(x)\nDirichlet eta function at x\n\n\nzeta(x)\nRiemann zeta function at x"
   },
   {
-    "objectID": "slide/slide_en.html#翻訳の仕組み",
-    "href": "slide/slide_en.html#翻訳の仕組み",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "翻訳の仕組み",
-    "text": "翻訳の仕組み\n\n@switchlang! :ja は Docs.parsedoc(d::DocStr) メソッドを上書きする．\n\n# Rough sketch\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # hack\n          translated_md = translate_docstring_with_openai(md)\n        end # hack\n        d.object = translated_md\n    end\n    d.object\nend\nSee the actual implementation to learn more."
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#gamma-function",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#gamma-function",
+    "title": "Functions",
+    "section": "",
+    "text": "Gamma Function - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\ngamma(z)\ngamma function \\Gamma(z)\n\n\nloggamma(x)\naccurate log(gamma(x)) for large x\n\n\nlogabsgamma(x)\naccurate log(abs(gamma(x))) for large x\n\n\nlogfactorial(x)\naccurate log(factorial(x)) for large x; same as loggamma(x+1) for x &gt; 1, zero otherwise\n\n\ndigamma(x)\ndigamma function (i.e. the derivative of loggamma at x)\n\n\ninvdigamma(x)\ninvdigamma function (i.e. inverse of digamma function at x using fixed-point iteration algorithm)\n\n\ntrigamma(x)\ntrigamma function (i.e the logarithmic second derivative of gamma at x)\n\n\npolygamma(m,x)\npolygamma function (i.e the (m+1)-th derivative of the loggamma function at x)\n\n\ngamma(a,z)\nupper incomplete gamma function \\Gamma(a,z)\n\n\nloggamma(a,z)\naccurate log(gamma(a,x)) for large arguments\n\n\ngamma_inc(a,x,IND)\nincomplete gamma function ratio P(a,x) and Q(a,x) (i.e evaluates P(a,x) and Q(a,x) for accuracy specified by IND and returns tuple (p,q))\n\n\ngamma_inc_inv(a,p,q)\ninverse of incomplete gamma function ratio P(a,x) and Q(a,x) (i.e evaluates x given P(a,x)=p and Q(a,x)=q)\n\n\nbeta(x,y)\nbeta function at x,y\n\n\nlogbeta(x,y)\naccurate log(beta(x,y)) for large x or y\n\n\nlogabsbeta(x,y)\naccurate log(abs(beta(x,y))) for large x or y\n\n\nlogabsbinomial(x,y)\naccurate log(abs(binomial(n,k))) for large n and k near n/2\n\n\nbeta_inc(a,b,x,y)\nincomplete beta function ratio I_x(a,b) and I_y(a,b) (i.e evaluates I_x(a,b) and I_y(a,b) and returns tuple (p,q))\n\n\nbeta_inc_inv(a,b,p,q)\nInverse of the incomplete beta function (i.e evaluates x given I_{x}(a, b) = p)"
   },
   {
-    "objectID": "slide/slide_en.html#docstrings-on-ijulia.jl",
-    "href": "slide/slide_en.html#docstrings-on-ijulia.jl",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Docstrings on IJulia.jl",
-    "text": "Docstrings on IJulia.jl\nWe can read translated docstrings on Jupyter"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#exponential-and-trigonometric-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#exponential-and-trigonometric-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "Exponential and Trigonometric Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nexpint(ν, z)\nexponential integral \\operatorname{E}_\\nu(z)\n\n\nexpinti(x)\nexponential integral \\operatorname{Ei}(x)\n\n\nexpintx(x)\nscaled exponential integral e^z \\operatorname{E}_\\nu(z)\n\n\nsinint(x)\nsine integral \\operatorname{Si}(x)\n\n\ncosint(x)\ncosine integral \\operatorname{Ci}(x)"
   },
   {
-    "objectID": "slide/slide_en.html#live-docs-on-pluto.jl",
-    "href": "slide/slide_en.html#live-docs-on-pluto.jl",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Live Docs on Pluto.jl",
-    "text": "Live Docs on Pluto.jl\nWe can read translated docstrings on Pluto"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#error-functions-dawsons-and-fresnel-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#error-functions-dawsons-and-fresnel-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "Error Functions, Dawson’s and Fresnel Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nerf(x)\nerror function at x\n\n\nerf(x,y)\naccurate version of \\operatorname{erf}(y) - \\operatorname{erf}(x)\n\n\nerfc(x)\ncomplementary error function, i.e. the accurate version of 1-\\operatorname{erf}(x) for large x\n\n\nerfcinv(x)\ninverse function to erfc()\n\n\nerfcx(x)\nscaled complementary error function, i.e. accurate e^{x^2} \\operatorname{erfc}(x) for large x\n\n\nlogerfc(x)\nlog of the complementary error function, i.e. accurate \\operatorname{ln}(\\operatorname{erfc}(x)) for large x\n\n\nlogerfcx(x)\nlog of the scaled complementary error function, i.e. accurate \\operatorname{ln}(\\operatorname{erfcx}(x)) for large negative x\n\n\nerfi(x)\nimaginary error function defined as -i \\operatorname{erf}(ix)\n\n\nerfinv(x)\ninverse function to erf()\n\n\ndawson(x)\nscaled imaginary error function, a.k.a. Dawson function, i.e. accurate \\frac{\\sqrt{\\pi}}{2} e^{-x^2} \\operatorname{erfi}(x) for large x\n\n\nfaddeeva(x)\nFaddeeva function, equivalent to \\operatorname{erfcx}(-ix)"
   },
   {
-    "objectID": "slide/slide_en.html#julia-マニュアルの翻訳結果",
-    "href": "slide/slide_en.html#julia-マニュアルの翻訳結果",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Julia マニュアルの翻訳結果",
-    "text": "Julia マニュアルの翻訳結果\n多言語 Julia ドキュメント:\n\n日本語\n韓国語\n中国語\nドイツ語\nフランス語\nスペイン語"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#airy-and-related-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#airy-and-related-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "Airy and Related Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nairyai(z)\nAiry Ai function at z\n\n\nairyaiprime(z)\nderivative of the Airy Ai function at z\n\n\nairybi(z)\nAiry Bi function at z\n\n\nairybiprime(z)\nderivative of the Airy Bi function at z\n\n\nairyaix(z), airyaiprimex(z), airybix(z), airybiprimex(z)\nscaled Airy Ai function and derivative at z"
   },
   {
-    "objectID": "slide/slide_en.html#翻訳結果のキャッシュについて",
-    "href": "slide/slide_en.html#翻訳結果のキャッシュについて",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "翻訳結果のキャッシュについて",
-    "text": "翻訳結果のキャッシュについて\n\nScratch.jl を使って翻訳結果をローカル環境に保存\nREPL の起動時に毎回 API を呼び出すことを抑制する\n&lt;lang&gt;.md (e.g., ja.md) を編集することで翻訳結果を修正が可能\n翻訳結果をユーザ間で共有可能\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#bessel-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#bessel-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "Bessel Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nbesselj(nu,z)\nBessel function of the first kind of order nu at z\n\n\nbesselj0(z)\nbesselj(0,z)\n\n\nbesselj1(z)\nbesselj(1,z)\n\n\nbesseljx(nu,z)\nscaled Bessel function of the first kind of order nu at z\n\n\nsphericalbesselj(nu,z)\nSpherical Bessel function of the first kind of order nu at z\n\n\nbessely(nu,z)\nBessel function of the second kind of order nu at z\n\n\nbessely0(z)\nbessely(0,z)\n\n\nbessely1(z)\nbessely(1,z)\n\n\nbesselyx(nu,z)\nscaled Bessel function of the second kind of order nu at z\n\n\nsphericalbessely(nu,z)\nSpherical Bessel function of the second kind of order nu at z\n\n\nbesselh(nu,k,z)\nBessel function of the third kind (a.k.a. Hankel function) of order nu at z; k must be either 1 or 2\n\n\nhankelh1(nu,z)\nbesselh(nu, 1, z)\n\n\nhankelh1x(nu,z)\nscaled besselh(nu, 1, z)\n\n\nhankelh2(nu,z)\nbesselh(nu, 2, z)\n\n\nhankelh2x(nu,z)\nscaled besselh(nu, 2, z)\n\n\nbesseli(nu,z)\nmodified Bessel function of the first kind of order nu at z\n\n\nbesselix(nu,z)\nscaled modified Bessel function of the first kind of order nu at z\n\n\nbesselk(nu,z)\nmodified Bessel function of the second kind of order nu at z\n\n\nbesselkx(nu,z)\nscaled modified Bessel function of the second kind of order nu at z\n\n\njinc(x)\nscaled Bessel function of the first kind divided by x. A.k.a. sombrero or besinc"
   },
   {
-    "objectID": "slide/slide_en.html#その他",
-    "href": "slide/slide_en.html#その他",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "その他",
-    "text": "その他\n\nDocstringTranslationOllamaBackend.jl (Ollama バックエンド)"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#elliptic-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#elliptic-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "Elliptic Integrals - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\nellipk(m)\ncomplete elliptic integral of 1st kind K(m)\n\n\nellipe(m)\ncomplete elliptic integral of 2nd kind E(m)"
   },
   {
-    "objectID": "slide/slide_en.html#デモ",
-    "href": "slide/slide_en.html#デモ",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "デモ",
-    "text": "デモ\n実際に翻訳機能を動かしてみましょう！"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#zeta-and-related-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_overview.html#zeta-and-related-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "Zeta and Related Functions - DLMF\n\n\n\nFunction\nDescription\n\n\n\n\neta(x)\nDirichlet eta function at x\n\n\nzeta(x)\nRiemann zeta function at x"
   },
   {
-    "objectID": "slide/slide_en.html#まとめ",
-    "href": "slide/slide_en.html#まとめ",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "まとめ",
-    "text": "まとめ\n\nJulia ドキュメントの多言語化を実現\ndocstring と Documenter.jl の両方に対応\n翻訳結果のキャッシュ機能で効率化\n複数の翻訳バックエンドをサポート\n\n今後の展望: - 翻訳品質の向上 - より多くの言語への対応 - コミュニティでの翻訳結果共有"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html",
+    "title": "Functions",
+    "section": "",
+    "text": "CurrentModule = SpecialFunctions\n\n\ngamma\nloggamma\nlogabsgamma\nloggamma1p\nlogfactorial\ndigamma\ninvdigamma\ntrigamma\npolygamma\ngamma_inc\ngamma_inc_inv\nloggammadiv\ngammax\nrgammax\nrgamma1pm1\ngamma_inc_asym\ngamma_inc_cf\ngamma_inc_fsum\ngamma_inc_minimax\ngamma_inc_taylor\ngamma_inc_taylor_x\ngamma_inc_temme\ngamma_inc_temme_1\ngamma_inc_inv_psmall\ngamma_inc_inv_qsmall\ngamma_inc_inv_alarge\nauxgam\n\n\nbeta\nlogbeta\nlogabsbeta\nlogabsbinomial\nbeta_inc\nbeta_inc_inv\nncbeta\nncbeta_poisson\nncbeta_tail\nbeta_inc_power_series1\nbeta_inc_power_series2\nbeta_inc_asymptotic_asymmetric\nbeta_inc_asymptotic_symmetric\nbeta_inc_power_series\nbeta_inc_diff\nbeta_inc_cont_fraction\nbeta_integrand\n\n\n\nchepolsum\nlambdaeta\nstirling_corr\nstirling_error\nesum\ncoeff1\ncoeff2\ncoeff3\nncF\n\n\n\n\nexpint\nexpinti\nexpintx\nsinint\ncosint\n\n\n\nerf\nerf(::Real, ::Real)\nerfc\nlogerf\nerfcinv\nerfcx\nlogerfc\nlogerfcx\nerfi\nerfinv\ndawson\nfaddeeva\n\n\n\nairyai\nairyaiprime\nairybi\nairybiprime\nairyaix\nairyaiprimex\nairybix\nairybiprimex\n\n\n\nbesselj\nbesselj0\nbesselj1\nbesseljx\nsphericalbesselj\nbessely\nbessely0\nbessely1\nbesselyx\nsphericalbessely\nbesselh\nbesselhx\nhankelh1\nhankelh1x\nhankelh2\nhankelh2x\nbesseli\nbesselix\nbesselk\nbesselkx\njinc\n\n\n\nellipk\nellipe\n\n\n\neta\nzeta"
   },
   {
-    "objectID": "slide/slide_en.html#ありがとうございました",
-    "href": "slide/slide_en.html#ありがとうございました",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "ありがとうございました",
-    "text": "ありがとうございました\nリポジトリ:\n\nDocstringTranslation.jl"
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#gamma-function",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#gamma-function",
+    "title": "Functions",
+    "section": "",
+    "text": "gamma\nloggamma\nlogabsgamma\nloggamma1p\nlogfactorial\ndigamma\ninvdigamma\ntrigamma\npolygamma\ngamma_inc\ngamma_inc_inv\nloggammadiv\ngammax\nrgammax\nrgamma1pm1\ngamma_inc_asym\ngamma_inc_cf\ngamma_inc_fsum\ngamma_inc_minimax\ngamma_inc_taylor\ngamma_inc_taylor_x\ngamma_inc_temme\ngamma_inc_temme_1\ngamma_inc_inv_psmall\ngamma_inc_inv_qsmall\ngamma_inc_inv_alarge\nauxgam\n\n\nbeta\nlogbeta\nlogabsbeta\nlogabsbinomial\nbeta_inc\nbeta_inc_inv\nncbeta\nncbeta_poisson\nncbeta_tail\nbeta_inc_power_series1\nbeta_inc_power_series2\nbeta_inc_asymptotic_asymmetric\nbeta_inc_asymptotic_symmetric\nbeta_inc_power_series\nbeta_inc_diff\nbeta_inc_cont_fraction\nbeta_integrand\n\n\n\nchepolsum\nlambdaeta\nstirling_corr\nstirling_error\nesum\ncoeff1\ncoeff2\ncoeff3\nncF"
   },
   {
-    "objectID": "slide/slide.html#背景課題",
-    "href": "slide/slide.html#背景課題",
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#exponential-and-trigonometric-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#exponential-and-trigonometric-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "expint\nexpinti\nexpintx\nsinint\ncosint"
+  },
+  {
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#error-functions-dawsons-and-fresnel-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#error-functions-dawsons-and-fresnel-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "erf\nerf(::Real, ::Real)\nerfc\nlogerf\nerfcinv\nerfcx\nlogerfc\nlogerfcx\nerfi\nerfinv\ndawson\nfaddeeva"
+  },
+  {
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#airy-and-related-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#airy-and-related-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "airyai\nairyaiprime\nairybi\nairybiprime\nairyaix\nairyaiprimex\nairybix\nairybiprimex"
+  },
+  {
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#bessel-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#bessel-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "besselj\nbesselj0\nbesselj1\nbesseljx\nsphericalbesselj\nbessely\nbessely0\nbessely1\nbesselyx\nsphericalbessely\nbesselh\nbesselhx\nhankelh1\nhankelh1x\nhankelh2\nhankelh2x\nbesseli\nbesselix\nbesselk\nbesselkx\njinc"
+  },
+  {
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#elliptic-integrals",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#elliptic-integrals",
+    "title": "Functions",
+    "section": "",
+    "text": "ellipk\nellipe"
+  },
+  {
+    "objectID": "demo/SpecialFunctions.jl/docs/src/functions_list.html#zeta-and-related-functions",
+    "href": "demo/SpecialFunctions.jl/docs/src/functions_list.html#zeta-and-related-functions",
+    "title": "Functions",
+    "section": "",
+    "text": "eta\nzeta"
+  },
+  {
+    "objectID": "slide/slide.html#background-and-challenges",
+    "href": "slide/slide.html#background-and-challenges",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "背景・課題",
-    "text": "背景・課題\n\nJulia の公式ドキュメントは 英語 で書かれている\n最新情報は英語でしか提供されない\n非英語圏の開発者にとって英語の読解・議論は心理的・時間的コストが高い\n翻訳作業は時間がかかる\n\n解決策: 機械翻訳を活用した自動翻訳システムの構築 - DocstringTranslation.jl 😎"
+    "section": "Background and Challenges",
+    "text": "Background and Challenges\n\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    lang = native_language(you) # e.g., Japanese\n    println(\"I want to read documentation in $(lang)\")\nend"
+  },
+  {
+    "objectID": "slide/slide.html#background-and-challenges-1",
+    "href": "slide/slide.html#background-and-challenges-1",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Background and Challenges",
+    "text": "Background and Challenges\n\nAll up-to-date information is provided only in English\n\nIt’s O.K. English is a common language\n\nFor non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs\nManual translation processes require significant time"
+  },
+  {
+    "objectID": "slide/slide.html#challenges-in-japan",
+    "href": "slide/slide.html#challenges-in-japan",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Challenges (in Japan)",
+    "text": "Challenges (in Japan)\n\nthe number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.\nIn Japan especially in industry, C++/Python is widely used in industry.\n\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Few libraries and documentation available for Julia” Python user says\n“Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my previous workplace (This is NOT a joke.)"
+  },
+  {
+    "objectID": "slide/slide.html#challenges-in-japan-1",
+    "href": "slide/slide.html#challenges-in-japan-1",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Challenges (in Japan)",
+    "text": "Challenges (in Japan)\n\nStarting August 2025, I’ll be unemployed. This Is Not a Drill.\nTo grow the Julia community in Japan, I think we need documentation written in Japanese. That’s why I created DocstringTranslation.jl package."
+  },
+  {
+    "objectID": "slide/slide.html#solution",
+    "href": "slide/slide.html#solution",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Solution",
+    "text": "Solution\n\nDeveloping an automated translation system utilizing machine translation\n\nDocstringTranslation.jl 😎"
   },
   {
     "objectID": "slide/slide.html#what-is-docstringtranslation.jl",
     "href": "slide/slide.html#what-is-docstringtranslation.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "What is DocstringTranslation.jl?",
-    "text": "What is DocstringTranslation.jl?\nJulia の docstring を好きな言語に翻訳するパッケージ\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10 and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined by\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian A, an eigendecomposition (eigen) is used, otherwise the scaling and squaring algorithm\n  (see [^H05]) is chosen.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。これは次のように定義されます。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズムが選択されます（[^\\H05]を参照）。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+    "text": "What is DocstringTranslation.jl?\nA package for translating Julia docstrings using OpenAI API\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10, and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined as:\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm\n  (see [^H05]) is employed.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。定義は次の通りです。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズム（[^\\H05]を参照）が選択されます。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling\n  │  method for the matrix exponential revisited\",\n  │  SIAM Journal on Matrix Analysis and\n  │  Applications, 26(4), 2005, 1179-1193.\n  │  doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
   },
   {
     "objectID": "slide/slide.html#what-is-docstringtranslation.jl-1",
@@ -126,73 +196,66 @@
     "text": "What is DocstringTranslation.jl?"
   },
   {
-    "objectID": "slide/slide.html#翻訳の仕組み",
-    "href": "slide/slide.html#翻訳の仕組み",
+    "objectID": "slide/slide.html#how-translation-works",
+    "href": "slide/slide.html#how-translation-works",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "翻訳の仕組み",
-    "text": "翻訳の仕組み\n\n@switchlang! :ja は Docs.parsedoc(d::DocStr) メソッドを上書きする．\n\n# Rough sketch\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # hack\n          translated_md = translate_docstring_with_openai(md)\n        end # hack\n        d.object = translated_md\n    end\n    d.object\nend\nSee the actual implementation to learn more."
+    "section": "How Translation Works",
+    "text": "How Translation Works\n\n@switchlang! :ja overrides the Docs.parsedoc(d::DocStr) method.\n\n# Rough implementation outline\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # workaround\n          translated_md = translate_docstring_with_openai(md)\n        end # workaround\n        d.object = translated_md\n    end\n    d.object\nend\nFor more details, refer to the actual implementation."
   },
   {
     "objectID": "slide/slide.html#docstrings-on-ijulia.jl",
     "href": "slide/slide.html#docstrings-on-ijulia.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Docstrings on IJulia.jl",
-    "text": "Docstrings on IJulia.jl\nWe can read translated docstrings on Jupyter"
+    "text": "Docstrings on IJulia.jl\nWe can view translated docstrings in Jupyter"
   },
   {
     "objectID": "slide/slide.html#live-docs-on-pluto.jl",
     "href": "slide/slide.html#live-docs-on-pluto.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Live Docs on Pluto.jl",
-    "text": "Live Docs on Pluto.jl\nWe can read translated docstrings on Pluto"
+    "text": "Live Docs on Pluto.jl\nWe can view translated docstrings in Pluto"
   },
   {
-    "objectID": "slide/slide.html#julia-マニュアルの翻訳結果",
-    "href": "slide/slide.html#julia-マニュアルの翻訳結果",
+    "objectID": "slide/slide.html#translation-results-for-julias-official-documentation",
+    "href": "slide/slide.html#translation-results-for-julias-official-documentation",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Julia マニュアルの翻訳結果",
-    "text": "Julia マニュアルの翻訳結果\n多言語 Julia ドキュメント:\n\n日本語\n韓国語\n中国語\nドイツ語\nフランス語\nスペイン語"
+    "section": "Translation Results for Julia’s Official Documentation",
+    "text": "Translation Results for Julia’s Official Documentation\nMultilingual Julia Documentation:\n\nJapanese\nKorean\nChinese\nGerman\nFrench\nSpanish\nArabic\nRussian"
   },
   {
-    "objectID": "slide/slide.html#翻訳結果のキャッシュについて",
-    "href": "slide/slide.html#翻訳結果のキャッシュについて",
+    "objectID": "slide/slide.html#about-result-caching",
+    "href": "slide/slide.html#about-result-caching",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "翻訳結果のキャッシュについて",
-    "text": "翻訳結果のキャッシュについて\n\nScratch.jl を使って翻訳結果をローカル環境に保存\nREPL の起動時に毎回 API を呼び出すことを抑制する\n&lt;lang&gt;.md (e.g., ja.md) を編集することで翻訳結果を修正が可能\n翻訳結果をユーザ間で共有可能\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
+    "section": "About Result Caching",
+    "text": "About Result Caching\n\nUses Scratch.jl to store translation results locally\nPrevents repeated API calls each time the REPL starts\nAllows modification of translation results by editing &lt;lang&gt;.md files (e.g., ja.md)\nEnables sharing of translation results among users\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
   },
   {
-    "objectID": "slide/slide.html#google-colab",
-    "href": "slide/slide.html#google-colab",
+    "objectID": "slide/slide.html#additional-information",
+    "href": "slide/slide.html#additional-information",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Google Colab",
-    "text": "Google Colab\nキャッシュを共有することで OPENAI_API_KEY がない環境でも動作を可能にする"
+    "section": "Additional Information",
+    "text": "Additional Information\n\nDocstringTranslation.jl (OpenAI backend)\nDocstringTranslationOllamaBackend.jl (Ollama backend)\nDocstringTranslationPLaMoBackend.jl (PLaMo backend)"
   },
   {
-    "objectID": "slide/slide.html#その他",
-    "href": "slide/slide.html#その他",
+    "objectID": "slide/slide.html#demo",
+    "href": "slide/slide.html#demo",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "その他",
-    "text": "その他\n\nDocstringTranslationOllamaBackend.jl (Ollama バックエンド)"
+    "section": "Demo",
+    "text": "Demo\n\nLet’s see the translation functionality in action!\nPlease come to me !!!"
   },
   {
-    "objectID": "slide/slide.html#デモ",
-    "href": "slide/slide.html#デモ",
+    "objectID": "slide/slide.html#summary",
+    "href": "slide/slide.html#summary",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "デモ",
-    "text": "デモ\n実際に翻訳機能を動かしてみましょう！"
+    "section": "Summary",
+    "text": "Summary\n\nEnables multilingual support for Julia documentation\nSupports both docstrings and Documenter.jl\nImproves efficiency through result caching\nSupports multiple translation backends\n\nFuture Plans:\n\nAdd support for more languages\nFacilitate community sharing of translation results"
   },
   {
-    "objectID": "slide/slide.html#まとめ",
-    "href": "slide/slide.html#まとめ",
+    "objectID": "slide/slide.html#thank-you",
+    "href": "slide/slide.html#thank-you",
     "title": "Let’s read Julia documentation in your preferred language",
-    "section": "まとめ",
-    "text": "まとめ\n\nJulia ドキュメントの多言語化を実現\ndocstring と Documenter.jl の両方に対応\n翻訳結果のキャッシュ機能で効率化\n複数の翻訳バックエンドをサポート\n\n今後の展望: - 翻訳品質の向上 - より多くの言語への対応 - コミュニティでの翻訳結果共有"
-  },
-  {
-    "objectID": "slide/slide.html#ありがとうございました",
-    "href": "slide/slide.html#ありがとうございました",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "ありがとうございました",
-    "text": "ありがとうございました\nリポジトリ:\n\nDocstringTranslation.jl"
+    "section": "Thank You",
+    "text": "Thank You\nRepositories:\n\nDocstringTranslation.jl"
   }
 ]

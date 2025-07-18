@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/index.html</loc>
-    <lastmod>2025-06-21T03:09:50.082Z</lastmod>
+    <lastmod>2025-07-17T23:37:11.719Z</lastmod>
   </url>
   <url>
-    <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide_en.html</loc>
-    <lastmod>2025-06-21T03:10:16.690Z</lastmod>
+    <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/demo/SpecialFunctions.jl/docs/src/index.html</loc>
+    <lastmod>2025-07-18T00:45:16.359Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/demo/SpecialFunctions.jl/docs/src/functions_overview.html</loc>
+    <lastmod>2025-07-18T00:45:16.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/demo/SpecialFunctions.jl/docs/src/functions_list.html</loc>
+    <lastmod>2025-07-18T00:45:16.358Z</lastmod>
   </url>
   <url>
     <loc>https://AtelierArith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html</loc>
-    <lastmod>2025-06-21T11:31:47.944Z</lastmod>
+    <lastmod>2025-07-18T00:43:06.516Z</lastmod>
   </url>
 </urlset>
