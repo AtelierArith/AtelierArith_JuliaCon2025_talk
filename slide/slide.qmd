@@ -14,6 +14,14 @@ format:
     mermaid-format: png
 ---
 
+# Link to slide
+
+[https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide](https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide)
+
+![](assets/qrcode.png)
+
+---
+
 # Overview
 
 - Introduction to DocstringTranslation.jl
