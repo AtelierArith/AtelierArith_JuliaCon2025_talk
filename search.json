@@ -158,7 +158,7 @@
     "href": "slide/slide.html#background-and-challenges",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Background and Challenges",
-    "text": "Background and Challenges\n\nJulia allows us to write code with high-level operations without losing execution performance (solving two-language problem)\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang)\")\nend"
+    "text": "Background and Challenges\n\nJulia allows us to write code with high-level operations without losing execution performance (solving two-language problem)\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D.\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's Okay.\")\nelse\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang).\")\nend"
   },
   {
     "objectID": "slide/slide.html#background-and-challenges-1",
@@ -172,7 +172,7 @@
     "href": "slide/slide.html#challenges-in-japan",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nThe number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.\nIn Japan especially in industry, C++/Python is widely used in industry. There is lots of Japanese documentation (including blog post) for C++/Python.\n\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Few libraries and documentation available for Julia” Python user says\n“Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
+    "text": "Challenges (in Japan)\n\nThe number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.\nIn Japan especially in industry, C++/Python is widely used.\n\nThere is lots of Japanese documentation (including blog post) for C++/Python.\n\nWhen I introduce Julia to others, they said to me:\n\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Few libraries and documentation available for Julia” Python user says\n“Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan-1",
@@ -221,21 +221,28 @@
     "href": "slide/slide.html#how-translation-works",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "How Translation Works",
-    "text": "How Translation Works\n\n@switchlang! :ja overrides the Docs.parsedoc(d::DocStr) method.\n\n# Rough implementation outline\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # workaround\n          translated_md = translate_docstring_with_openai(md)\n        end # workaround\n        d.object = translated_md\n    end\n    d.object\nend\nFor more details, refer to the actual implementation."
+    "text": "How Translation Works\n\n@switchlang! :ja overrides the Docs.parsedoc(d::DocStr) method.\n\n# Rough implementation outline\n@eval function Docs.parsedoc(d::DocStr)\n    if d.object === nothing\n        md = Docs.formatdoc(d)\n        md.meta[:module] = d.data[:module]\n        md.meta[:path] = d.data[:path]\n        begin # hack\n          # inject a translation engine such as OpenAI.jl\n          translated_md = translate_docstring_with_openai(md)\n        end # hack\n        d.object = translated_md\n    end\n    d.object\nend\nFor more details, refer to the actual implementation."
   },
   {
     "objectID": "slide/slide.html#docstrings-on-ijulia.jl",
     "href": "slide/slide.html#docstrings-on-ijulia.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Docstrings on IJulia.jl",
-    "text": "Docstrings on IJulia.jl\nWe can view translated docstrings in Jupyter"
+    "text": "Docstrings on IJulia.jl\nWe can view translated docstrings on Jupyter Notebook"
   },
   {
     "objectID": "slide/slide.html#live-docs-on-pluto.jl",
     "href": "slide/slide.html#live-docs-on-pluto.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Live Docs on Pluto.jl",
-    "text": "Live Docs on Pluto.jl\nWe can view translated docstrings in Pluto"
+    "text": "Live Docs on Pluto.jl\nWe can view translated docstrings on Pluto Notebook"
+  },
+  {
+    "objectID": "slide/slide.html#applications",
+    "href": "slide/slide.html#applications",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Applications",
+    "text": "Applications\n\nWe’ve shown we can translate docstrings into any languages.\nWhat about files in docs?\n\nCan we translate documentation built with Documenter.jl?"
   },
   {
     "objectID": "slide/slide.html#translation-results-for-julias-official-documentation",
@@ -256,14 +263,14 @@
     "href": "slide/slide.html#additional-information",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Additional Information",
-    "text": "Additional Information\n\nDocstringTranslation.jl (OpenAI backend)\nDocstringTranslationOllamaBackend.jl (Ollama backend)\nDocstringTranslationPLaMoBackend.jl (PLaMo backend)"
+    "text": "Additional Information\nWe are experimenting with various backends. In terms of accuracy and speed, I think the OpenAI backend is the best.\n\nDocstringTranslation.jl (OpenAI backend)\nDocstringTranslationOllamaBackend.jl (Ollama backend)\nDocstringTranslationPLaMoBackend.jl (PLaMo backend)\nDocstringTranslationExoBackend.jl (exo backend)\nDocstringTranslationGoogleTransBackend.jl (Google Translate API)"
   },
   {
     "objectID": "slide/slide.html#summary",
     "href": "slide/slide.html#summary",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Summary",
-    "text": "Summary\n\nIntroducing DocstringTranslation.jl\nEnables multilingual support for Julia documentation\nSupports both docstrings and Documenter.jl\nImproves efficiency through result caching\nSupports multiple translation backends\nSolves yet another two-language problem (I believe)\n\nFuture Plans:\n\nTranslate Julia documentation for more languages\nSupport Franklin.jl based documentation"
+    "text": "Summary\n\nIntroduce DocstringTranslation.jl\nEnables multilingual support for Julia documentation\nSupports both docstrings and Documenter.jl\nSolves yet another two-language problem (I believe)\n\nFuture Plans:\n\nTranslate Julia documentation for more languages\nSupport Franklin.jl based documentation"
   },
   {
     "objectID": "slide/slide.html#thank-you",
@@ -271,5 +278,12 @@
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Thank You",
     "text": "Thank You\nRepositories:\n\nDocstringTranslation.jl"
+  },
+  {
+    "objectID": "slide/slide.html#appendix",
+    "href": "slide/slide.html#appendix",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Appendix",
+    "text": "Appendix\nNotebookLM"
   }
 ]
