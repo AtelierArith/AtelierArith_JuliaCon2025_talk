@@ -38,15 +38,15 @@ format:
 
 ```julia
 if you in Set(NativeEnglishSpeakers)
-    println("No problem :D")
+    println("No problem :D.")
 elseif you ∈ Set(GoodAtReadingEnglish)
-    println("It's O.K.")
+    println("It's Okay.")
 else
     lang = native_language(you) # e.g., Japanese
     @assert lang ≠ "English"
     println("Meh.")
     println("It takes a lot of time to understand correctly.")
-    println("I want to read documentation in $(lang)")
+    println("I want to read documentation in $(lang).")
 end
 ```
 
@@ -444,7 +444,7 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ## Additional Information
 
-We are trying various backends. I think OpenAI backend is the best.
+We are experimenting with various backends. In terms of accuracy and speed, I think the OpenAI backend is the best.
 
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) (OpenAI backend)
 - [DocstringTranslationOllamaBackend.jl](https://github.com/AtelierArith/DocstringTranslationOllamaBackend.jl) ([Ollama](https://ollama.com/) backend)
@@ -474,3 +474,10 @@ We are trying various backends. I think OpenAI backend is the best.
 
 - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl)
 
+---
+
+## Appendix
+
+NotebookLM
+
+<audio src="assets/notebooklm.wav" controls></audio>
