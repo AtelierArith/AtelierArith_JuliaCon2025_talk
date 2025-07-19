@@ -459,8 +459,6 @@ We are trying various backends. I think OpenAI backend is the best.
 - Introduce DocstringTranslation.jl
 - Enables multilingual support for Julia documentation
 - Supports both docstrings and Documenter.jl
-- Improves efficiency through result caching
-- Supports multiple translation backends
 - Solves yet another two-language problem (I believe)
 
 **Future Plans**:
