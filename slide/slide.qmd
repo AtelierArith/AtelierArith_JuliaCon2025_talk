@@ -336,9 +336,10 @@ julia> @doc exp
         md = Docs.formatdoc(d)
         md.meta[:module] = d.data[:module]
         md.meta[:path] = d.data[:path]
-        begin # workaround
+        begin # hack
+          # inject a translation engine such as OpenAI.jl
           translated_md = translate_docstring_with_openai(md)
-        end # workaround
+        end # hack
         d.object = translated_md
     end
     d.object
@@ -351,7 +352,7 @@ For more details, refer to the [actual implementation](https://github.com/Atelie
 
 ## Docstrings on IJulia.jl
 
-We can view translated docstrings in Jupyter
+We can view translated docstrings on Jupyter Notebook
 
 ![](assets/jupyter_eigen.png)
 
@@ -359,13 +360,21 @@ We can view translated docstrings in Jupyter
 
 ## Live Docs on Pluto.jl
 
-We can view translated docstrings in Pluto
+We can view translated docstrings on Pluto Notebook
 
 ![](assets/pluto_eigen.png)
 
 ---
 
-### Translation of Documenter.jl-based documentation
+## Applications
+
+- We've shown we can translate docstrings into any languages.
+- What about files in `docs`?
+  - Can we translate documentation built with `Documenter.jl`?
+
+---
+
+### Translation of documentation built with Documenter.jl
 
 ```diff
 --- a/docs/make.jl
@@ -435,9 +444,13 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 ## Additional Information
 
-- DocstringTranslation.jl (OpenAI backend)
-- DocstringTranslationOllamaBackend.jl ([Ollama](https://ollama.com/) backend)
-- DocstringTranslationPLaMoBackend.jl ([PLaMo](https://www.preferred.jp/en/news/pr20241202/) backend)
+We are trying various backends. I think OpenAI backend is the best.
+
+- [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) (OpenAI backend)
+- [DocstringTranslationOllamaBackend.jl](https://github.com/AtelierArith/DocstringTranslationOllamaBackend.jl) ([Ollama](https://ollama.com/) backend)
+- [DocstringTranslationPLaMoBackend.jl](https://github.com/AtelierArith/DocstringTranslationPLaMoBackend.jl) ([PLaMo](https://www.preferred.jp/en/news/pr20241202/) backend)
+- [DocstringTranslationExoBackend.jl](https://github.com/AtelierArith/DocstringTranslationExoBackend.jl) ([exo](https://github.com/exo-explore/exo) backend)
+- [DocstringTranslationGoogleTransBackend.jl](https://github.com/AtelierArith/DocstringTranslationGoogleTransBackend.jl) (Google Translate API)
 
 ---
 
