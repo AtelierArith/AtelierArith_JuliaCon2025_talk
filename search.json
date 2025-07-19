@@ -151,14 +151,14 @@
     "href": "slide/slide.html#overview",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Overview",
-    "text": "Overview\n\nIntroduction to DocstringTranslation.jl\nMultilingual translation of Julia documentation\nRunning demonstration"
+    "text": "Overview\n\nBackground and Challenges\nIntroduction to DocstringTranslation.jl\nMultilingual translation of Julia documentation\nRunning demonstration (if possible)"
   },
   {
     "objectID": "slide/slide.html#background-and-challenges",
     "href": "slide/slide.html#background-and-challenges",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Background and Challenges",
-    "text": "Background and Challenges\n\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang)\")\nend"
+    "text": "Background and Challenges\n\nJulia allows us to write code with high-level operations without losing execution performance (solving two-language problem)\nWhen you want to something to learn about Julia, we need to read Julia’s official documentation in English\n\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's O.K.\")\nelse\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang)\")\nend"
   },
   {
     "objectID": "slide/slide.html#background-and-challenges-1",
@@ -193,11 +193,25 @@
     "href": "slide/slide.html#what-is-docstringtranslation.jl",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "What is DocstringTranslation.jl?",
-    "text": "What is DocstringTranslation.jl?\nA package for translating Julia docstrings using OpenAI API\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10, and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined as:\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm\n  (see [^H05]) is employed.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。定義は次の通りです。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズム（[^\\H05]を参照）が選択されます。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling\n  │  method for the matrix exponential revisited\",\n  │  SIAM Journal on Matrix Analysis and\n  │  Applications, 26(4), 2005, 1179-1193.\n  │  doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+    "text": "What is DocstringTranslation.jl?\nA package for translating Julia docstrings using OpenAI API\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10, and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined as:\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm\n  (see [^H05]) is employed.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
   },
   {
     "objectID": "slide/slide.html#what-is-docstringtranslation.jl-1",
     "href": "slide/slide.html#what-is-docstringtranslation.jl-1",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?\nA package for translating Julia docstrings using OpenAI API\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。定義は次の通りです。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズム（[^\\H05]を参照）が選択されます。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling\n  │  method for the matrix exponential revisited\",\n  │  SIAM Journal on Matrix Analysis and\n  │  Applications, 26(4), 2005, 1179-1193.\n  │  doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+  },
+  {
+    "objectID": "slide/slide.html#what-is-docstringtranslation.jl-2",
+    "href": "slide/slide.html#what-is-docstringtranslation.jl-2",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "What is DocstringTranslation.jl?",
+    "text": "What is DocstringTranslation.jl?\nA package for translating Julia docstrings using OpenAI API\n\n\n@doc exp (Original)\njulia&gt; @doc exp\n  exp(x)\n\n  Compute the natural base exponential of x, in other words ℯ^x.\n\n  See also exp2, exp10, and cis.\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  Compute the matrix exponential of A, defined as:\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  For symmetric or Hermitian matrices A, an eigendecomposition (eigen) is used; otherwise, the scaling and squaring algorithm\n  (see [^H05]) is employed.\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling method for the matrix exponential revisited\", SIAM Journal\n  │  on Matrix Analysis and Applications, 26(4), 2005, 1179-1193. doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  Examples\n  ≡≡≡≡≡≡≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828\n\n@doc exp (Translated into Japanese)\njulia&gt; ENV[\"OPENAI_API_KEY\"] = \"sk-&lt;blah&gt;\"\njulia&gt; using DocstringTranslation\njulia&gt; @switchlang! :ja\njulia&gt; @doc exp\n  exp(x)\n\n  xの自然基底指数を計算します。言い換えれば、ℯ^xです。\n\n  他にexp2、exp10、およびcisも参照してください。\n\n  例\n  ≡≡\n\n  julia&gt; exp(1.0)\n  2.718281828459045\n\n  julia&gt; exp(im * pi) ≈ cis(pi)\n  true\n\n  exp(A::AbstractMatrix)\n\n  行列 A の行列指数関数を計算します。定義は次の通りです。\n\n  e^A = \\sum_{n=0}^{\\infty} \\frac{A^n}{n!}.\n\n  対称行列またはエルミート行列 A\n  の場合は、固有分解（eigen）が使用され、それ以外の場合はスケーリングと平方化アルゴリズム（[^\\H05]を参照）が選択されます。\n\n  │ [^H05]\n  │\n  │  Nicholas J. Higham, \"The squaring and scaling\n  │  method for the matrix exponential revisited\",\n  │  SIAM Journal on Matrix Analysis and\n  │  Applications, 26(4), 2005, 1179-1193.\n  │  doi:10.1137/090768539\n  │  (https://doi.org/10.1137/090768539)\n\n  例\n  ≡≡\n\n  julia&gt; A = Matrix(1.0I, 2, 2)\n  2×2 Matrix{Float64}:\n   1.0  0.0\n   0.0  1.0\n\n  julia&gt; exp(A)\n  2×2 Matrix{Float64}:\n   2.71828  0.0\n   0.0      2.71828"
+  },
+  {
+    "objectID": "slide/slide.html#what-is-docstringtranslation.jl-3",
+    "href": "slide/slide.html#what-is-docstringtranslation.jl-3",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "What is DocstringTranslation.jl?",
     "text": "What is DocstringTranslation.jl?"
@@ -245,18 +259,11 @@
     "text": "Additional Information\n\nDocstringTranslation.jl (OpenAI backend)\nDocstringTranslationOllamaBackend.jl (Ollama backend)\nDocstringTranslationPLaMoBackend.jl (PLaMo backend)"
   },
   {
-    "objectID": "slide/slide.html#demo",
-    "href": "slide/slide.html#demo",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Demo",
-    "text": "Demo\n\nLet’s see the translation functionality in action!\nPlease come to me !!!"
-  },
-  {
     "objectID": "slide/slide.html#summary",
     "href": "slide/slide.html#summary",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Summary",
-    "text": "Summary\n\nEnables multilingual support for Julia documentation\nSupports both docstrings and Documenter.jl\nImproves efficiency through result caching\nSupports multiple translation backends\n\nFuture Plans:\n\nAdd support for more languages\nFacilitate community sharing of translation results"
+    "text": "Summary\n\nIntroducing DocstringTranslation.jl\nEnables multilingual support for Julia documentation\nSupports both docstrings and Documenter.jl\nImproves efficiency through result caching\nSupports multiple translation backends\nSolves yet another two-language problem (I believe)\n\nFuture Plans:\n\nTranslate Julia documentation for more languages\nSupport Franklin.jl based documentation"
   },
   {
     "objectID": "slide/slide.html#thank-you",
