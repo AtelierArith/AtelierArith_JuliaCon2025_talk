@@ -14,11 +14,15 @@ format:
     mermaid-format: png
 ---
 
-# Link to this slide
+### Link to this slide
 
 [https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide](https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide)
 
 ![](assets/qrcode.png)
+
+### Notebook LM
+
+<audio src="assets/notebooklm.wav" controls></audio>
 
 ---
 
@@ -34,7 +38,17 @@ format:
 ## Background and Challenges
 
 - Julia allows us to write code with high-level operations without losing execution performance (solving two-language problem)
-- When you want to something to learn about Julia, we need to read [Julia's official documentation](https://docs.julialang.org/en/v1/) in **English**
+- I want more people to use Julia 
+
+## Background and Challenges
+
+When you want to learn something about Julia, we need to do before reading [Julia's official documentation](https://docs.julialang.org/en/v1/).
+
+```julia
+julia> using Pkg; Pkg.activate("YourBrain"); Pkg.add("English")
+``` 
+
+This requirements may be non-trivial for someone like me.
 
 ```julia
 if you in Set(NativeEnglishSpeakers)
@@ -42,6 +56,7 @@ if you in Set(NativeEnglishSpeakers)
 elseif you ∈ Set(GoodAtReadingEnglish)
     println("It's Okay.")
 else
+    # This block happens if `you` is `me`
     lang = native_language(you) # e.g., Japanese
     @assert lang ≠ "English"
     println("Meh.")
@@ -50,27 +65,25 @@ else
 end
 ```
 
-## Background and Challenges
+## Challenges (in Japan)
 
-- All up-to-date information is provided only in English
-  - It's O.K. English is a common language
-- For non-English-speaking developers, reading and participating in discussions in English represents significant psychological and time costs
-  - This is a yet another two-language problem
-- Manual translation processes require significant time
+- For Japanese, learning English is not easy than English native speakers expected.
+- The number of Japanese who use English daily is limited 
+  - We usually read, write, listen and discuss something in Japanese
+- Threfore many technical documents are expected to be readable in Japanese
+  - This is a key factor for making Japanese try and use something(=Julia)
 
 ---
 
 ## Challenges (in Japan)
 
-- The number of people who use English daily is limited. Many technical documents are expected to be readable in Japanese.
 - In Japan especially in industry, C++/Python is widely used. 
-  - There is lots of Japanese documentation (including blog post) for C++/Python. 
+  - There is lots of resources in for C++/Python on the internet. 
 - When I introduce Julia to others, they said to me:
+  - "Few libraries and documentation available for Julia" Python user says
   - "I don't want to use Julia because it is a minor language" C++ user says
   - "Julia is difficult" C++ user says
-  - "Few libraries and documentation available for Julia
-" Python user says
-  - "Production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
+  - "Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
 
 ---
 
@@ -83,6 +96,8 @@ end
 
 ## Solution
 
+- Manual translation for Julia documents requires significant time
+  - My life is too short
 - Developing an automated translation system utilizing machine translation
     - [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) 😎
 
@@ -416,32 +431,6 @@ b");
 
 ---
 
-## About Result Caching
-
-- Uses Scratch.jl to store translation results locally
-- Prevents repeated API calls each time the REPL starts
-- Allows modification of translation results by editing `<lang>.md` files (e.g., `ja.md`)
-- Enables sharing of translation results among users
-
-```
-$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
-├── Base
-│   └── 1.11
-│       └── Math
-│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe
-│               ├── ja.md
-│               └── original.md
-└── LinearAlgebra
-    └── 1.11
-        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46
-            ├── ja.md
-            └── original.md
-
-8 directories, 4 files
-```
-
----
-
 ## Additional Information
 
 We are experimenting with various backends. In terms of accuracy and speed, I think the OpenAI backend is the best.
@@ -476,8 +465,30 @@ We are experimenting with various backends. In terms of accuracy and speed, I th
 
 ---
 
-## Appendix
+# Appendix
 
-NotebookLM
+---
 
-<audio src="assets/notebooklm.wav" controls></audio>
+## About Result Caching
+
+- Uses Scratch.jl to store translation results locally
+- Prevents repeated API calls each time the REPL starts
+- Allows modification of translation results by editing `<lang>.md` files (e.g., `ja.md`)
+- Enables sharing of translation results among users
+
+```
+$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
+├── Base
+│   └── 1.11
+│       └── Math
+│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe
+│               ├── ja.md
+│               └── original.md
+└── LinearAlgebra
+    └── 1.11
+        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46
+            ├── ja.md
+            └── original.md
+
+8 directories, 4 files
+```
