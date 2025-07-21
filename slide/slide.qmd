@@ -20,9 +20,11 @@ format:
 
 ![](assets/qrcode.png)
 
+<!---
 ### Notebook LM
 
 <audio src="assets/notebooklm.wav" controls></audio>
+--->
 
 ---
 
@@ -68,6 +70,7 @@ end
 ## Challenges (in Japan)
 
 - For Japanese, learning English is not easy than English native speakers expected.
+  - See [this discussion](https://discourse.julialang.org/t/docstringtranslation-jl-translate-docstrings-in-julia-using-your-preferred-language/123276)
 - The number of Japanese who use English daily is limited 
   - We usually read, write, listen and discuss something in Japanese
 - Threfore many technical documents are expected to be readable in Japanese
