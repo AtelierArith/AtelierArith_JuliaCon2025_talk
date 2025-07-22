@@ -4,6 +4,7 @@ instructions = [
 	"using DocstringTranslation",
 	"using DocstringAsImage",
 	"using SpecialFunctions: zeta",
+	"@imgdoc zeta",
 	"@switchlang! :ja",
 	"@imgdoc zeta",
 ]
