@@ -179,7 +179,7 @@
     "href": "slide/slide.html#challenges-in-japan-1",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nIn Japan especially in industry, C++/Python is widely used.\n\nThere is lots of resources in for C++/Python on the internet.\n\nWhen I introduce Julia to others, they said to me:\n\n“Few libraries and documentation available for Julia” Python user says\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n“Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
+    "text": "Challenges (in Japan)\n\nIn Japan especially in industry, C++/Python is widely used.\n\nThere is lots of resources written in Japanese for C++/Python on the internet.\n\nWhen I introduce Julia to others, they said to me:\n\n“Few libraries and documentation available for Julia” Python user says\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n\nWhat was worse\n\n“Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan-2",
