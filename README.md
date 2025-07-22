@@ -4,7 +4,7 @@
 
 このWebページでは JuliaCon 2025 で話す資料・リンクを格納する.
 
-- [slide (EN)](slide/slide.qmd)
+- [slide (EN)]([slide/slide.qmd](https://atelierarith.github.io/AtelierArith_JuliaCon2025_talk/slide/slide.html#/title-slide))
   - We propose a technique for translating Julia documents written in Markdown. The proposed method is primarily intended to assist non-native English speakers.
 
 ## Appendix
