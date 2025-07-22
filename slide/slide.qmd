@@ -79,12 +79,14 @@ end
 ## Challenges (in Japan)
 
 - In Japan especially in industry, C++/Python is widely used. 
-  - There is lots of resources in for C++/Python on the internet. 
+  - There is lots of resources written in Japanese for C++/Python on the internet. 
 - When I introduce Julia to others, they said to me:
   - "Few libraries and documentation available for Julia" Python user says
   - "I don't want to use Julia because it is a minor language" C++ user says
   - "Julia is difficult" C++ user says
-  - "Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
+
+- What was worse
+    - "Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
 
 ---
 
