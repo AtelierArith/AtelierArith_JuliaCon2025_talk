@@ -6,8 +6,8 @@ title: "Let’s read Julia documentation in your preferred language"
 
 This webpage serves as a repository for the presentation materials and links I will be discussing at [JuliaCon 2025](https://juliacon.org/2025/).
 
-- [Slides](slide/slide.qmd)
-  - I will present a proposal for a technology that translates Julia documentation written in Markdown. This proposed method primarily aims to assist non-native English speakers.
+- [Slide](slide/slide.qmd)
+  - We propose a technique for translating Julia documents written in Markdown. The proposed method is primarily intended to assist non-native English speakers.
 
 ## Appendix
 
