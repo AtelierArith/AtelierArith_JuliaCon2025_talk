@@ -60,7 +60,7 @@ else
     lang = native_language(you) # e.g., Japanese
     @assert lang ≠ "English"
     println("Meh.")
-    println("It takes a lot of time to understand correctly.")
+    println("It takes a lot of time to understand correctly in English.")
     println("I want to read documentation in $(lang).")
 end
 ```
