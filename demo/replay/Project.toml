@@ -1,5 +1,6 @@
 [deps]
 DocstringAsImage = "cb150ec3-d779-4cdb-98dd-b48d53cba988"
 DocstringTranslation = "d404e13b-1f8e-41a5-a26a-0b758a0c6c97"
+OhMyREPL = "5fb14364-9ced-5910-84b2-373655c76a03"
 Replay = "dd78c5bf-19c4-4e9c-96ce-c3ec745c7812"
 SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"

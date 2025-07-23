@@ -1,7 +1,11 @@
 using Replay
 
 instructions = [
-	"""using Pkg; Pkg.activate("YourBrain"); Pkg.add("English")"""
+	"using OhMyREPL",
+	"\"Hello, I'm Satoshi. Let's learn English\";",
+	"""using Pkg; Pkg.activate("YourBrain"); Pkg.add("English")""",
+	"\"Sorry, English is difficult for me\";",
+	"\"This is yet another two-language problem\";"
 ]
 
 replay(instructions, use_ghostwriter=true)
