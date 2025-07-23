@@ -1,0 +1,32 @@
+name = "DocstringChef"
+uuid = "df11dc83-e121-44c9-861e-86ad465e3a48"
+authors = ["SatoshiTerasaki <terasakisatoshi.math@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DocstringTranslation = "d404e13b-1f8e-41a5-a26a-0b758a0c6c97"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+JLFzf = "1019f520-868f-41f5-a6de-eb00f4b6a39c"
+Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
+OpenAI = "e9f21f70-7185-4079-aca2-91159181367c"
+Replay = "dd78c5bf-19c4-4e9c-96ce-c3ec745c7812"
+
+[compat]
+Aqua = "0.8.9"
+DocstringTranslation = "0.1.1"
+InteractiveUtils = "1.11.0"
+JET = "0.9.12"
+JLFzf = "0.1.11"
+Markdown = "1.11.0"
+OpenAI = "0.10.1"
+Replay = "0.5.0"
+Test = "1.11.0"
+julia = "1.10"
+
+[extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+JET = "c3a54625-cd67-489e-a8e7-0a5a0ff4e31b"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test", "JET", "Aqua"]
