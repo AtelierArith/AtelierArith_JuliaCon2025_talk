@@ -165,28 +165,21 @@
     "href": "slide/slide.html#background-and-challenges-1",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Background and Challenges",
-    "text": "Background and Challenges\nWhen you want to learn something about Julia, we need to do before reading Julia’s official documentation.\njulia&gt; using Pkg; Pkg.activate(\"YourBrain\"); Pkg.add(\"English\")\nThis requirements may be non-trivial for someone like me.\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D.\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's Okay.\")\nelse\n    # This block happens if `you` is `me`\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly.\")\n    println(\"I want to read documentation in $(lang).\")\nend"
+    "text": "Background and Challenges\nWhen you want to learn something about Julia, we need to do before reading Julia’s official documentation.\njulia&gt; using Pkg; Pkg.activate(\"YourBrain\"); Pkg.add(\"English\")\nThis requirements may be non-trivial for someone like me.\nif you in Set(NativeEnglishSpeakers)\n    println(\"No problem :D.\")\nelseif you ∈ Set(GoodAtReadingEnglish)\n    println(\"It's Okay.\")\nelse\n    # This block happens if `you` is `me`\n    lang = native_language(you) # e.g., Japanese\n    @assert lang ≠ \"English\"\n    println(\"Meh.\")\n    println(\"It takes a lot of time to understand correctly in English.\")\n    println(\"I want to read documentation in $(lang).\")\nend"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan",
     "href": "slide/slide.html#challenges-in-japan",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nFor Japanese, learning English is not easy than English native speakers expected.\n\nSee this discussion\n\nThe number of Japanese who use English daily is limited\n\nWe usually read, write, listen and discuss something in Japanese\n\nThrefore many technical documents are expected to be readable in Japanese\n\nThis is a key factor for making Japanese try and use something(=Julia)"
+    "text": "Challenges (in Japan)\n\nFor Japanese, learning English is not easy than English native speakers expected.\n\nSee this discussion\n\nThe number of Japanese who use English daily is limited\n\nWe usually read, write, listen and discuss something in Japanese"
   },
   {
     "objectID": "slide/slide.html#challenges-in-japan-1",
     "href": "slide/slide.html#challenges-in-japan-1",
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nIn Japan especially in industry, C++/Python is widely used.\n\nThere is lots of resources written in Japanese for C++/Python on the internet.\n\nWhen I introduce Julia to others, they said to me:\n\n“Few libraries and documentation available for Julia” Python user says\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n\nWhat was worse\n\n“Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)"
-  },
-  {
-    "objectID": "slide/slide.html#challenges-in-japan-2",
-    "href": "slide/slide.html#challenges-in-japan-2",
-    "title": "Let’s read Julia documentation in your preferred language",
-    "section": "Challenges (in Japan)",
-    "text": "Challenges (in Japan)\n\nStarting August 2025, I’ll be unemployed. This Is Not a Drill.\nTo grow the Julia community in Japan, I think we need documentation written in Japanese. That’s why I created DocstringTranslation.jl package."
+    "text": "Challenges (in Japan)\n\nThrefore many technical documents are expected to be readable in Japanese\n\nThis is a key factor for making Japanese try and use something(=Julia)\n\nTo grow the Julia community in Japan, I think we need documentation written in Japanese. That’s why I created DocstringTranslation.jl package."
   },
   {
     "objectID": "slide/slide.html#solution",
@@ -285,5 +278,12 @@
     "title": "Let’s read Julia documentation in your preferred language",
     "section": "About Result Caching",
     "text": "About Result Caching\n\nUses Scratch.jl to store translation results locally\nPrevents repeated API calls each time the REPL starts\nAllows modification of translation results by editing &lt;lang&gt;.md files (e.g., ja.md)\nEnables sharing of translation results among users\n\n$ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation\n├── Base\n│   └── 1.11\n│       └── Math\n│           └── 77be4ada26c623c913ebbdae5d8450a4dfe8f3cbf67837faac9d7193342d2bfe\n│               ├── ja.md\n│               └── original.md\n└── LinearAlgebra\n    └── 1.11\n        └── 46c0494a8a2adffc6f71752b60448da1743997b5b1791b71e3830113e9b9cc46\n            ├── ja.md\n            └── original.md\n\n8 directories, 4 files"
+  },
+  {
+    "objectID": "slide/slide.html#challenges-in-japan-2",
+    "href": "slide/slide.html#challenges-in-japan-2",
+    "title": "Let’s read Julia documentation in your preferred language",
+    "section": "Challenges (in Japan)",
+    "text": "Challenges (in Japan)\n\nIn Japan especially in industry, C++/Python is widely used.\n\nThere is lots of resources written in Japanese for C++/Python on the internet.\n\nWhen I introduce Julia to others, they said to me:\n\n“Few libraries and documentation available for Julia” Python user says\n“I don’t want to use Julia because it is a minor language” C++ user says\n“Julia is difficult” C++ user says\n\nWhat was worse\n\n“Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination.” CEO at my workplace (This is NOT a joke.)\n\nStarting August 2025, I’ll be unemployed. This Is Not a Drill."
   }
 ]
