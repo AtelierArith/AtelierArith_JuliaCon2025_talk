@@ -20,10 +20,6 @@ format:
 
 ![](assets/qrcode.png)
 
-### Notebook LM
-
-<audio src="assets/notebooklm.wav" controls></audio>
-
 ---
 
 ## Overview
