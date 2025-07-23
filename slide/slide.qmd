@@ -71,28 +71,11 @@ end
   - See [this discussion](https://discourse.julialang.org/t/docstringtranslation-jl-translate-docstrings-in-julia-using-your-preferred-language/123276)
 - The number of Japanese who use English daily is limited 
   - We usually read, write, listen and discuss something in Japanese
+
+## Challenges (in Japan)
+
 - Threfore many technical documents are expected to be readable in Japanese
   - This is a key factor for making Japanese try and use something(=Julia)
-
----
-
-## Challenges (in Japan)
-
-- In Japan especially in industry, C++/Python is widely used. 
-  - There is lots of resources written in Japanese for C++/Python on the internet. 
-- When I introduce Julia to others, they said to me:
-  - "Few libraries and documentation available for Julia" Python user says
-  - "I don't want to use Julia because it is a minor language" C++ user says
-  - "Julia is difficult" C++ user says
-
-- What was worse
-    - "Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
-
----
-
-## Challenges (in Japan)
-
-- Starting August 2025, I'll be unemployed. This Is Not a Drill. 
 - To grow the Julia community in Japan, I think we need documentation written in Japanese. That's why I created [DocstringTranslation.jl](https://github.com/AtelierArith/DocstringTranslation.jl) package.
 
 ---
@@ -495,3 +478,19 @@ $ tree ~/.julia/scratchspaces/d404e13b-1f8e-41a5-a26a-0b758a0c6c97/translation
 
 8 directories, 4 files
 ```
+
+---
+
+## Challenges (in Japan)
+
+- In Japan especially in industry, C++/Python is widely used. 
+  - There is lots of resources written in Japanese for C++/Python on the internet. 
+- When I introduce Julia to others, they said to me:
+  - "Few libraries and documentation available for Julia" Python user says
+  - "I don't want to use Julia because it is a minor language" C++ user says
+  - "Julia is difficult" C++ user says
+
+- What was worse
+    - "Because Julia is not effective, production systems must strictly prohibit the use of the Julia language. From now on, if you use it, be prepared for possible termination." CEO at my workplace (This is NOT a joke.)
+- Starting August 2025, I'll be unemployed. This Is Not a Drill. 
+
